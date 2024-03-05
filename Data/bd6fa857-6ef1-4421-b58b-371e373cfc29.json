@@ -1,0 +1,905 @@
+{
+   "data": [
+      {
+         "content": " "
+      },
+      {
+         "content": "BERITA NEGARA REPUBLIK INDONESIA No.76, 2023 KEMENKEU. Komwasjak. Pencabutan."
+      },
+      {
+         "content": "PERATURAN MENTERI KEUANGAN REPUBLIK INDONESIA NOMOR 2/PMK.09/2023 TENTANG KOMITE PENGAWAS PERPAJAKAN"
+      },
+      {
+         "content": "DENGAN RAHMAT TUHAN YANG MAHA ESA"
+      },
+      {
+         "content": "MENTERI KEUANGAN REPUBLIK INDONESIA,"
+      },
+      {
+         "id": "heading_menimbang",
+         "ref": "heading_menimbang",
+         "content": "Menimbang :",
+         "type": "konsideran",
+         "bab": null,
+         "bagian": null,
+         "paragraf": null,
+         "pasal": null,
+         "level": 1
+      },
+      {
+         "ref": "menimbang",
+         "content": "a. bahwa untuk melaksanakan ketentuan Pasal 36C Undang-Undang Nomor 6 Tahun 1983 tentang Ketentuan Umum dan Tata Cara Perpajakan sebagaimana telah beberapa kali diubah terakhir dengan Undang-Undang Nomor 7 Tahun 2021 tentang Harmonisasi Peraturan Perpajakan, telah dibentuk Komite Pengawas Perpajakan melalui Peraturan Menteri Keuangan Nomor 54/PMK.09/2008 tentang Komite Pengawas Perpajakan sebagaimana telah beberapa kali diubah terakhir dengan Peraturan Menteri Keuangan Nomor 18/PMK.01/2020 tentang Perubahan Kedua atas Peraturan Menteri Keuangan Nomor 54/PMK.09/2008 tentang Komite Pengawas Perpajakan;\nb. bahwa untuk meningkatkan efektivitas dan efisiensi pengawasan perpajakan, perlu dilakukan penyempurnaan terhadap ketentuan mengenai Komite Pengawas Perpajakan;\nc. bahwa berdasarkan pertimbangan sebagaimana dimaksud dalam huruf a dan huruf b, perlu menetapkan Peraturan Menteri Keuangan tentang Komite Pengawas Perpajakan;"
+      },
+      {
+         "id": "heading_mengingat",
+         "ref": "heading_mengingat",
+         "content": "Mengingat :",
+         "type": "konsideran",
+         "bab": null,
+         "bagian": null,
+         "paragraf": null,
+         "pasal": null,
+         "level": 1
+      },
+      {
+         "ref": "mengingat",
+         "content": "1. Pasal 17 ayat (3) Undang-Undang Dasar Negara Republik Indonesia Tahun 1945;\n2. Undang-Undang Nomor 6 Tahun 1983 tentang Ketentuan Umum dan Tata Cara Perpajakan (Lembaran Negara Republik Indonesia Tahun 1983 Nomor 49, Tambahan Lembaran Negara Republik Indonesia Nomor 3262) sebagaimana telah beberapa kali diubah terakhir dengan Undang-Undang Nomor 7 Tahun 2021 tentang Harmonisasi Peraturan Perpajakan (Lembaran Negara Republik Indonesia Tahun 2021 Nomor 246, Tambahan Lembaran Negara Republik Indonesia Nomor 6736);\n3. Undang-Undang Nomor 10 Tahun 1995 tentang Kepabeanan (Lembaran Negara Republik Indonesia Tahun 1995 Nomor 75, Tambahan Lembaran Negara Republik Indonesia Nomor 3612) sebagaimana telah diubah dengan Undang-Undang Nomor 17 Tahun 2006 tentang Perubahan atas Undang-Undang Nomor 10 Tahun 1995 tentang Kepabeanan (Lembaran Negara Republik Indonesia Tahun 2006 Nomor 93, Tambahan Lembaran Negara Republik Indonesia Nomor 4661);\n4. Undang-Undang Nomor 11 Tahun 1995 tentang Cukai (Lembaran Negara Republik Indonesia Tahun 1995 Nomor 76, Tambahan Lembaran Negara Republik Indonesia Nomor 3612) sebagaimana telah beberapa kali diubah terakhir dengan Undang-Undang Nomor 7 Tahun 2021 tentang Harmonisasi Peraturan Perpajakan (Lembaran Negara Republik Indonesia Tahun 2021 Nomor 246, Tambahan Lembaran Negara Republik Indonesia Nomor 6736);\n5. Undang-Undang Nomor 39 Tahun 2008 tentang Kementerian Negara (Lembaran Negara Republik Indonesia Tahun 2008 Nomor 166, Tambahan Lembaran Negara Republik Indonesia Nomor 4916);\n6. Peraturan Presiden Nomor 57 Tahun 2020 tentang Kementerian Keuangan (Lembaran Negara Republik Indonesia Tahun 2020 Nomor 98);\n7. Peraturan Menteri Keuangan Nomor 118/PMK.01/2021 tentang Organisasi dan Tata Kerja Kementerian Keuangan (Berita Negara Republik Indonesia Tahun 2021 Nomor 1031) sebagaimana telah diubah dengan Peraturan Menteri Keuangan Nomor 141/PMK.01/2022 tentang Perubahan atas Peraturan Menteri Keuangan Nomor 118/PMK.01/2021 tentang Organisasi dan Tata Kerja Kementerian Keuangan (Berita Negara Republik Indonesia Tahun 2022 Nomor 954);"
+      },
+      {
+         "id": "heading_memutuskan",
+         "ref": "heading_memutuskan",
+         "content": "MEMUTUSKAN:",
+         "type": "konsideran",
+         "bab": null,
+         "bagian": null,
+         "paragraf": null,
+         "pasal": null,
+         "level": 1
+      },
+      {
+         "ref": "memutuskan",
+         "content": " Menetapkan : PERATURAN MENTERI KEUANGAN TENTANG KOMITE PENGAWAS PERPAJAKAN."
+      },
+      {
+         "id": "bab-i",
+         "ref": "BAB I",
+         "content": " KETENTUAN UMUM",
+         "type": "heading_bab",
+         "bab": null,
+         "bagian": null,
+         "paragraf": null,
+         "pasal": null,
+         "level": 1
+      },
+      {
+         "id": "pasal-1",
+         "ref": "Pasal 1",
+         "content": "",
+         "type": "heading_pasal",
+         "bab": "bab-i",
+         "bagian": null,
+         "paragraf": null,
+         "pasal": "pasal-1",
+         "level": 4
+      },
+      {
+         "pasal": "pasal-1",
+         "content": "Dalam Peraturan Menteri ini yang dimaksud dengan: 1. Perpajakan adalah pajak, kepabeanan, dan cukai yang menjadi objek pengawasan Komite Pengawas Perpajakan.\n2. Kementerian adalah kementerian yang menyelenggarakan urusan pemerintahan di bidang keuangan negara.\n3. Menteri adalah menteri yang menyelenggarakan urusan pemerintahan di bidang keuangan negara.\n4. Wakil Menteri adalah Wakil Menteri yang menyelenggarakan urusan pemerintahan di bidang keuangan negara.\n5. Komite Pengawas Perpajakan yang selanjutnya disebut Komwasjak adalah komite nonstruktural yang bersifat independen dalam melakukan fungsi pengawasan aspek strategis bidang Perpajakan.\n6. Wajib Pajak adalah orang pribadi atau badan, meliputi pembayar pajak, pemotong pajak, dan pemungut pajak, yang mempunyai hak dan kewajiban perpajakan sesuai dengan ketentuan peraturan perundang-undangan perpajakan dan termasuk di bidang kepabeanan dan cukai.",
+         "context": "KOMITE PENGAWAS PERPAJAKAN -  KETENTUAN UMUM",
+         "type": "CONTENT_PASAL",
+         "additional_context": [],
+         "chunks": [],
+         "source_token_length": 116,
+         "buku": null,
+         "bab": "bab-i",
+         "bagian": null,
+         "paragraf": null
+      },
+      {
+         "id": "bab-ii",
+         "ref": "BAB II",
+         "content": " KEDUDUKAN",
+         "type": "heading_bab",
+         "bab": null,
+         "bagian": null,
+         "paragraf": null,
+         "pasal": null,
+         "level": 1
+      },
+      {
+         "id": "pasal-2",
+         "ref": "Pasal 2",
+         "content": "",
+         "type": "heading_pasal",
+         "bab": "bab-ii",
+         "bagian": null,
+         "paragraf": null,
+         "pasal": "pasal-2",
+         "level": 4
+      },
+      {
+         "pasal": "pasal-2",
+         "content": "omwasjak berkedudukan di bawah dan bertanggung jawab kepada Menteri.",
+         "context": "KOMITE PENGAWAS PERPAJAKAN -  KEDUDUKAN",
+         "type": "CONTENT_PASAL",
+         "additional_context": [],
+         "chunks": [],
+         "source_token_length": 9,
+         "buku": null,
+         "bab": "bab-ii",
+         "bagian": null,
+         "paragraf": null
+      },
+      {
+         "id": "bab-iii",
+         "ref": "BAB III",
+         "content": " TUGAS, FUNGSI, DAN WEWENANG",
+         "type": "heading_bab",
+         "bab": null,
+         "bagian": null,
+         "paragraf": null,
+         "pasal": null,
+         "level": 1
+      },
+      {
+         "id": "pasal-3",
+         "ref": "Pasal 3",
+         "content": "",
+         "type": "heading_pasal",
+         "bab": "bab-iii",
+         "bagian": null,
+         "paragraf": null,
+         "pasal": "pasal-3",
+         "level": 4
+      },
+      {
+         "pasal": "pasal-3",
+         "content": "Dalam melaksanakan tugas, fungsi, dan wewenangnya, Komwasjak bersifat independen dari pengaruh instansi yang diawasi.",
+         "context": "KOMITE PENGAWAS PERPAJAKAN -  TUGAS, FUNGSI, DAN WEWENANG",
+         "type": "CONTENT_PASAL",
+         "additional_context": [],
+         "chunks": [],
+         "source_token_length": 14,
+         "buku": null,
+         "bab": "bab-iii",
+         "bagian": null,
+         "paragraf": null
+      },
+      {
+         "id": "pasal-4",
+         "ref": "Pasal 4",
+         "content": "",
+         "type": "heading_pasal",
+         "bab": "bab-iii",
+         "bagian": null,
+         "paragraf": null,
+         "pasal": "pasal-4",
+         "level": 4
+      },
+      {
+         "pasal": "pasal-4",
+         "content": "(1) Komwasjak melaksanakan tugas membantu Menteri dalam melakukan pengawasan dan memberikan rekomendasi yang bersifat strategis terhadap kebijakan dan administrasi Perpajakan pada Badan Kebijakan Fiskal, Direktorat Jenderal Pajak, dan Direktorat Jenderal Bea dan Cukai.\n(2) Pelaksanaan tugas Komwasjak sebagaimana dimaksud pada ayat (1) bertujuan untuk: a. mendorong terwujudnya tata kelola Perpajakan yang baik;\nb. meningkatkan kualitas kebijakan dan administrasi Perpajakan;\nc. mendorong keadilan kebijakan dan administrasi Perpajakan; dan\nd. meningkatkan kepatuhan sukarela Wajib Pajak.\n(3) Komwasjak memiliki fungsi: a. pengkajian terhadap kebijakan, sistem, dan peraturan perundang-undangan di bidang Perpajakan;\nb. evaluasi risiko strategis terkait kebijakan dan administrasi Perpajakan;\nc. pemberian masukan atas rencana strategis Perpajakan dan strategi pencapaiannya;\nd. penerusan seluruh pengaduan terkait Perpajakan dan pemantauan tindak lanjut penanganan pengaduan;\ne. komunikasi dan/atau publikasi tugas dan fungsi Komwasjak; dan\nf. fungsi lain yang diberikan oleh Menteri atau Wakil Menteri.",
+         "context": "KOMITE PENGAWAS PERPAJAKAN -  TUGAS, FUNGSI, DAN WEWENANG",
+         "type": "CONTENT_PASAL",
+         "additional_context": [],
+         "chunks": [],
+         "source_token_length": 138,
+         "buku": null,
+         "bab": "bab-iii",
+         "bagian": null,
+         "paragraf": null
+      },
+      {
+         "id": "pasal-5",
+         "ref": "Pasal 5",
+         "content": "",
+         "type": "heading_pasal",
+         "bab": "bab-iii",
+         "bagian": null,
+         "paragraf": null,
+         "pasal": "pasal-5",
+         "level": 4
+      },
+      {
+         "pasal": "pasal-5",
+         "content": "Dalam melaksanakan tugas dan fungsi sebagaimana dimaksud dalam Pasal 4, Komwasjak memiliki wewenang untuk: a. meminta informasi kepada Badan Kebijakan Fiskal, Direktorat Jenderal Pajak, Direktorat Jenderal Bea dan Cukai, dan Inspektorat Jenderal sesuai dengan tugas dan fungsinya;\nb. mengumpulkan informasi, saran, masukan, dan/atau aspirasi dari pihak selain yang dimaksud pada huruf a dalam rangka pelaksanaan fungsi pengkajian sebagaimana dimaksud dalam Pasal 4 ayat (3) huruf a;\nc. menerima pengaduan Perpajakan dari pihak eksternal Kementerian;\nd. memantau tindak lanjut rekomendasi hasil kajian yang disetujui Menteri;\ne. memantau tindak lanjut penyelesaian pengaduan oleh Badan Kebijakan Fiskal, Direktorat Jenderal Pajak, Direktorat Jenderal Bea dan Cukai, dan Inspektorat Jenderal; dan\nf. melakukan kerja sama dengan pihak lain untuk melaksanakan tugas dan fungsi sepanjang tidak bertentangan dengan kode etik, prinsip benturan kepentingan, dan independensi.",
+         "context": "KOMITE PENGAWAS PERPAJAKAN -  TUGAS, FUNGSI, DAN WEWENANG",
+         "type": "CONTENT_PASAL",
+         "additional_context": [],
+         "chunks": [],
+         "source_token_length": 129,
+         "buku": null,
+         "bab": "bab-iii",
+         "bagian": null,
+         "paragraf": null
+      },
+      {
+         "id": "bab-iv",
+         "ref": "BAB IV",
+         "content": " TATA KERJA",
+         "type": "heading_bab",
+         "bab": null,
+         "bagian": null,
+         "paragraf": null,
+         "pasal": null,
+         "level": 1
+      },
+      {
+         "id": "pasal-6",
+         "ref": "Pasal 6",
+         "content": "",
+         "type": "heading_pasal",
+         "bab": "bab-iv",
+         "bagian": null,
+         "paragraf": null,
+         "pasal": "pasal-6",
+         "level": 4
+      },
+      {
+         "pasal": "pasal-6",
+         "content": "(1) Komwasjak mengadakan rapat koordinasi secara berkala paling sedikit 1 (satu) kali dalam 3 (tiga) bulan dengan Badan Kebijakan Fiskal, Direktorat Jenderal Pajak, Direktorat Jenderal Bea dan Cukai, dan Inspektorat Jenderal.\n(2) Rapat koordinasi sebagaimana dimaksud pada ayat (1) bertujuan untuk: a. mengomunikasikan hasil kajian di bidang Perpajakan;\nb. mengomunikasikan hasil evaluasi risiko strategis terkait kebijakan dan administrasi Perpajakan;\nc. mengomunikasikan masukan atas rencana strategis Perpajakan dan strategi pencapaiannya;\nd. memantau tindak lanjut penanganan pengaduan dan rekomendasi Komwasjak;\ne. mengharmonisasikan bahan laporan kepada Menteri; dan\nf. mendapatkan tanggapan dan masukan dari Badan Kebijakan Fiskal, Direktorat Jenderal Pajak, Direktorat Jenderal Bea dan Cukai, dan Inspektorat Jenderal.",
+         "context": "KOMITE PENGAWAS PERPAJAKAN -  TATA KERJA",
+         "type": "CONTENT_PASAL",
+         "additional_context": [],
+         "chunks": [],
+         "source_token_length": 105,
+         "buku": null,
+         "bab": "bab-iv",
+         "bagian": null,
+         "paragraf": null
+      },
+      {
+         "id": "pasal-7",
+         "ref": "Pasal 7",
+         "content": "",
+         "type": "heading_pasal",
+         "bab": "bab-iv",
+         "bagian": null,
+         "paragraf": null,
+         "pasal": "pasal-7",
+         "level": 4
+      },
+      {
+         "pasal": "pasal-7",
+         "content": "(1) Penerusan pengaduan terkait Perpajakan sebagaimana dimaksud dalam Pasal 4 ayat (3) huruf d, disampaikan kepada: a. Badan Kebijakan Fiskal, Direktorat Jenderal Pajak, dan/atau Direktorat Jenderal Bea dan Cukai, untuk pengaduan terkait kebijakan Perpajakan dan pelaksanaan administrasi Perpajakan; dan\nb. Inspektorat Jenderal, untuk pengaduan terkait aparatur Kementerian.\n(2) Hasil tindak lanjut penanganan pengaduan sebagaimana dimaksud pada ayat (1) huruf a disampaikan oleh Badan Kebijakan Fiskal, Direktorat Jenderal Pajak, dan/atau Direktorat Jenderal Bea dan Cukai kepada pengadu dan ditembuskan kepada Komwasjak.\n(3) Hasil tindak lanjut penanganan pengaduan sebagaimana dimaksud pada ayat (1) huruf b disampaikan oleh Inspektorat Jenderal kepada pihak-pihak terkait sesuai dengan ketentuan penanganan pengaduan yang berlaku pada Kementerian dan dapat diinformasikan kepada Komwasjak.\n(4) Pemantauan tindak lanjut penanganan pengaduan sebagaimana dimaksud dalam Pasal 4 ayat (3) huruf d dilakukan dalam bentuk: a. rapat koordinasi; dan/atau\nb. korespondensi.",
+         "context": "KOMITE PENGAWAS PERPAJAKAN -  TATA KERJA",
+         "type": "CONTENT_PASAL",
+         "additional_context": [],
+         "chunks": [],
+         "source_token_length": 138,
+         "buku": null,
+         "bab": "bab-iv",
+         "bagian": null,
+         "paragraf": null
+      },
+      {
+         "id": "pasal-8",
+         "ref": "Pasal 8",
+         "content": "",
+         "type": "heading_pasal",
+         "bab": "bab-iv",
+         "bagian": null,
+         "paragraf": null,
+         "pasal": "pasal-8",
+         "level": 4
+      },
+      {
+         "pasal": "pasal-8",
+         "content": "Komunikasi dan/atau publikasi tugas dan fungsi Komwasjak sebagaimana dimaksud dalam Pasal 4 ayat (3) huruf e dilaksanakan dalam kerangka komunikasi dan layanan informasi Kementerian dan berkoordinasi dengan Sekretariat Jenderal, Badan Kebijakan Fiskal, Direktorat Jenderal Pajak, Direktorat Jenderal Bea dan Cukai, dan/atau unit terkait lainnya.",
+         "context": "KOMITE PENGAWAS PERPAJAKAN -  TATA KERJA",
+         "type": "CONTENT_PASAL",
+         "additional_context": [],
+         "chunks": [],
+         "source_token_length": 44,
+         "buku": null,
+         "bab": "bab-iv",
+         "bagian": null,
+         "paragraf": null
+      },
+      {
+         "id": "pasal-9",
+         "ref": "Pasal 9",
+         "content": "",
+         "type": "heading_pasal",
+         "bab": "bab-iv",
+         "bagian": null,
+         "paragraf": null,
+         "pasal": "pasal-9",
+         "level": 4
+      },
+      {
+         "pasal": "pasal-9",
+         "content": "(1) Dalam rangka mendukung pelaksanaan tugas dan fungsi Komwasjak sebagaimana dimaksud dalam Pasal 4, Badan Kebijakan Fiskal, Direktorat Jenderal Pajak, Direktorat Jenderal Bea dan Cukai, dan Inspektorat Jenderal memiliki tanggung jawab untuk memberikan informasi terkait: a. kebijakan dan administrasi Perpajakan; dan\nb. pengaduan terkait Perpajakan dan tindak lanjut penanganannya.\n(2) Badan Kebijakan Fiskal, Direktorat Jenderal Pajak, Direktorat Jenderal Bea dan Cukai, dan Inspektorat Jenderal, sesuai kewenangannya, menyampaikan informasi sebagaimana dimaksud pada ayat (1) paling sedikit 1 (satu) kali dalam 3 (tiga) bulan atau sewaktu- waktu berdasarkan permintaan Komwasjak.",
+         "context": "KOMITE PENGAWAS PERPAJAKAN -  TATA KERJA",
+         "type": "CONTENT_PASAL",
+         "additional_context": [],
+         "chunks": [],
+         "source_token_length": 88,
+         "buku": null,
+         "bab": "bab-iv",
+         "bagian": null,
+         "paragraf": null
+      },
+      {
+         "id": "pasal-10",
+         "ref": "Pasal 10",
+         "content": "",
+         "type": "heading_pasal",
+         "bab": "bab-iv",
+         "bagian": null,
+         "paragraf": null,
+         "pasal": "pasal-10",
+         "level": 4
+      },
+      {
+         "pasal": "pasal-10",
+         "content": "(1) Komwasjak dibantu oleh unit sekretariat yang ditetapkan dalam Peraturan Menteri.\n(2) Komwasjak dapat membentuk tim kerja sesuai kebutuhan yang ditetapkan oleh Ketua Komwasjak.",
+         "context": "KOMITE PENGAWAS PERPAJAKAN -  TATA KERJA",
+         "type": "CONTENT_PASAL",
+         "additional_context": [],
+         "chunks": [],
+         "source_token_length": 24,
+         "buku": null,
+         "bab": "bab-iv",
+         "bagian": null,
+         "paragraf": null
+      },
+      {
+         "id": "pasal-11",
+         "ref": "Pasal 11",
+         "content": "",
+         "type": "heading_pasal",
+         "bab": "bab-iv",
+         "bagian": null,
+         "paragraf": null,
+         "pasal": "pasal-11",
+         "level": 4
+      },
+      {
+         "pasal": "pasal-11",
+         "content": "(1) Dalam melaksanakan tugas, fungsi, dan wewenang sebagaimana dimaksud dalam Pasal 4 dan Pasal 5, Komwasjak menyusun petunjuk pelaksanaan.\n(2) Dalam penyusunan petunjuk pelaksanaan sebagaimana dimaksud pada ayat (1), Komwasjak berkoordinasi dengan Sekretariat Jenderal, Inspektorat Jenderal, Badan Kebijakan Fiskal, Direktorat Jenderal Pajak, dan Direktorat Jenderal Bea dan Cukai.\n(3) Petunjuk pelaksanaan sebagaimana dimaksud pada ayat (1) ditetapkan oleh Ketua Komwasjak.",
+         "context": "KOMITE PENGAWAS PERPAJAKAN -  TATA KERJA",
+         "type": "CONTENT_PASAL",
+         "additional_context": [],
+         "chunks": [],
+         "source_token_length": 60,
+         "buku": null,
+         "bab": "bab-iv",
+         "bagian": null,
+         "paragraf": null
+      },
+      {
+         "id": "bab-v",
+         "ref": "BAB V",
+         "content": " KEANGGOTAAN",
+         "type": "heading_bab",
+         "bab": null,
+         "bagian": null,
+         "paragraf": null,
+         "pasal": null,
+         "level": 1
+      },
+      {
+         "id": "bagian-kesatu",
+         "ref": "Bagian Kesatu",
+         "content": " Komposisi Anggota",
+         "type": "heading_bagian",
+         "bab": "bab-v",
+         "bagian": null,
+         "paragraf": null,
+         "pasal": null,
+         "level": 2
+      },
+      {
+         "id": "pasal-12",
+         "ref": "Pasal 12",
+         "content": "",
+         "type": "heading_pasal",
+         "bab": "bab-v",
+         "bagian": "bagian-kesatu",
+         "paragraf": null,
+         "pasal": "pasal-12",
+         "level": 4
+      },
+      {
+         "pasal": "pasal-12",
+         "content": "Komwasjak terdiri atas: a. seorang ketua yang merangkap sebagai anggota;\nb. seorang wakil ketua yang merangkap sebagai anggota; dan\nc. 5 (lima) orang anggota.",
+         "context": "KOMITE PENGAWAS PERPAJAKAN -  KEANGGOTAAN -  Komposisi Anggota",
+         "type": "CONTENT_PASAL",
+         "additional_context": [],
+         "chunks": [],
+         "source_token_length": 24,
+         "buku": null,
+         "bab": "bab-v",
+         "bagian": "bagian-kesatu",
+         "paragraf": null
+      },
+      {
+         "id": "pasal-13",
+         "ref": "Pasal 13",
+         "content": "",
+         "type": "heading_pasal",
+         "bab": "bab-v",
+         "bagian": "bagian-kesatu",
+         "paragraf": null,
+         "pasal": "pasal-13",
+         "level": 4
+      },
+      {
+         "pasal": "pasal-13",
+         "content": "(1) Komposisi keanggotaan Komwasjak terdiri atas: a. ketua merangkap anggota yang berasal dari luar Kementerian;\nb. wakil ketua merangkap anggota yang berasal dari luar Kementerian;\nc. anggota yang berasal dari luar Kementerian yang memiliki keahlian dan pengalaman di bidang pajak;\nd. anggota yang berasal dari luar Kementerian yang memiliki keahlian dan pengalaman di bidang kepabeanan dan cukai;\ne. anggota yang berasal dari luar Kementerian yang memiliki keahlian dan pengalaman di bidang hukum, ekonomi, dan/atau keuangan;\nf. Sekretaris Jenderal; dan\ng. Inspektur Jenderal.",
+         "context": "KOMITE PENGAWAS PERPAJAKAN -  KEANGGOTAAN -  Komposisi Anggota",
+         "type": "CONTENT_PASAL",
+         "additional_context": [],
+         "chunks": [],
+         "source_token_length": 82,
+         "buku": null,
+         "bab": "bab-v",
+         "bagian": "bagian-kesatu",
+         "paragraf": null
+      },
+      {
+         "content": "(2) Komposisi keanggotaan Komwasjak sebagaimana dimaksud pada ayat (1) paling sedikit mencakup 3 (tiga) orang yang bukan pegawai negeri sipil.\n(3) Anggota Komwasjak selain Sekretaris Jenderal dan Inspektur Jenderal, ditunjuk dan ditetapkan oleh Menteri untuk jangka waktu 3 (tiga) tahun dan dapat ditunjuk kembali untuk 1 (satu) kali masa jabatan berikutnya.\n(4) Menteri dapat memberhentikan anggota Komwasjak sebelum jangka waktu 3 (tiga) tahun sebagaimana dimaksud pada ayat (3)."
+      },
+      {
+         "id": "pasal-14",
+         "ref": "Pasal 14",
+         "content": "",
+         "type": "heading_pasal",
+         "bab": "bab-v",
+         "bagian": "bagian-kesatu",
+         "paragraf": null,
+         "pasal": "pasal-14",
+         "level": 4
+      },
+      {
+         "pasal": "pasal-14",
+         "content": "(1) Dalam hal Ketua Komwasjak berhalangan sementara, wakil ketua Komwasjak melaksanakan tugas dan kewenangan sebagai Ketua Komwasjak.\n(2) Dalam hal ketua Komwasjak berhalangan tetap atau telah berakhir masa jabatannya dan belum diangkat yang baru, Inspektur Jenderal menjabat sebagai pelaksana tugas ketua Komwasjak.\n(3) Dalam hal Inspektur Jenderal berhalangan tetap, Sekretaris Jenderal menjabat sebagai pelaksana tugas ketua Komwasjak.\n(4) Pelaksana tugas ketua Komwasjak sebagaimana dimaksud pada ayat (2) dan ayat (3) melaksanakan tugas dan kewenangannya sampai Ketua Komwasjak dipilih secara definitif.",
+         "context": "KOMITE PENGAWAS PERPAJAKAN -  KEANGGOTAAN -  Komposisi Anggota",
+         "type": "CONTENT_PASAL",
+         "additional_context": [],
+         "chunks": [],
+         "source_token_length": 80,
+         "buku": null,
+         "bab": "bab-v",
+         "bagian": "bagian-kesatu",
+         "paragraf": null
+      },
+      {
+         "id": "bagian-kedua",
+         "ref": "Bagian Kedua",
+         "content": " Tata Cara Seleksi dan Penetapan Anggota",
+         "type": "heading_bagian",
+         "bab": "bab-v",
+         "bagian": null,
+         "paragraf": null,
+         "pasal": null,
+         "level": 2
+      },
+      {
+         "id": "pasal-15",
+         "ref": "Pasal 15",
+         "content": "",
+         "type": "heading_pasal",
+         "bab": "bab-v",
+         "bagian": "bagian-kedua",
+         "paragraf": null,
+         "pasal": "pasal-15",
+         "level": 4
+      },
+      {
+         "pasal": "pasal-15",
+         "content": "(1) Dalam rangka penunjukan dan penetapan anggota Komwasjak sebagaimana dimaksud dalam Pasal 13 ayat (1) huruf a sampai dengan huruf e, dilakukan seleksi calon anggota Komwasjak oleh panitia seleksi.\n(2) Panitia seleksi sebagaimana dimaksud pada ayat (1) terdiri atas: a. Wakil Menteri sebagai Ketua; dan\nb. Sekretaris Jenderal dan Inspektur Jenderal, sebagai anggota.\n(3) Dalam menjalankan tugasnya, panitia seleksi dibantu oleh Sekretariat Jenderal c.q. Kepala Biro Sumber Daya Manusia dan Inspektorat Jenderal c.q. Inspektur Bidang Investigasi.\n(4) Seleksi anggota Komwasjak sebagaimana dimaksud pada ayat (1) dilakukan melalui mekanisme sebagai berikut: a. ketua panitia seleksi menginstruksikan anggota panitia seleksi, untuk melakukan proses seleksi dan mengusulkan calon anggota Komwasjak;\nb. seleksi dilakukan dengan mempertimbangkan rekam jejak integritas, kompetensi, dan pengalaman;\nc. anggota panitia seleksi memastikan calon anggota Komwasjak sebagaimana dimaksud dalam Pasal 13 ayat (1) huruf c, huruf d, dan huruf e yang merupakan dan/atau pernah menjadi pegawai negeri sipil Kementerian, telah melewati jangka waktu paling sedikit 3 (tiga) bulan sejak: 1. mengundurkan diri dari pegawai negeri sipil Kementerian;\n2. beralih status kepegawaiannya dari pegawai negeri sipil Kementerian; dan/atau\n3. memasuki masa purnabakti sebagai pegawai negeri sipil Kementerian;\nd. anggota panitia seleksi dapat meminta masukan dan usulan calon anggota Komwasjak kepada Kepala Badan Kebijakan Fiskal, Direktur Jenderal Pajak, dan Direktur Jenderal Bea dan Cukai;\ne. anggota panitia seleksi menyampaikan hasil seleksi berupa daftar calon anggota Komwasjak sesuai dengan komposisi sebagaimana dimaksud dalam Pasal 13 ayat (1) huruf a sampai dengan huruf e kepada ketua panitia seleksi;\nf. panitia seleksi melakukan pembahasan daftar calon anggota Komwasjak sebagaimana dimaksud pada huruf e; dan\ng. ketua panitia seleksi memberikan persetujuan atas daftar calon anggota Komwasjak untuk diusulkan kepada Menteri.\n(5) Tahapan, proses, dan persyaratan seleksi calon anggota Komwasjak ditetapkan oleh ketua panitia seleksi.",
+         "context": "KOMITE PENGAWAS PERPAJAKAN -  KEANGGOTAAN -  Tata Cara Seleksi dan Penetapan Anggota",
+         "type": "CONTENT_PASAL",
+         "additional_context": [],
+         "chunks": [],
+         "source_token_length": 288,
+         "buku": null,
+         "bab": "bab-v",
+         "bagian": "bagian-kedua",
+         "paragraf": null
+      },
+      {
+         "id": "pasal-16",
+         "ref": "Pasal 16",
+         "content": "",
+         "type": "heading_pasal",
+         "bab": "bab-v",
+         "bagian": "bagian-kedua",
+         "paragraf": null,
+         "pasal": "pasal-16",
+         "level": 4
+      },
+      {
+         "pasal": "pasal-16",
+         "content": "Berdasarkan usulan panitia seleksi sebagaimana dimaksud dalam Pasal 15 ayat (4) huruf g, Menteri menunjuk dan menetapkan ketua, wakil ketua, dan para anggota Komwasjak.",
+         "context": "KOMITE PENGAWAS PERPAJAKAN -  KEANGGOTAAN -  Tata Cara Seleksi dan Penetapan Anggota",
+         "type": "CONTENT_PASAL",
+         "additional_context": [],
+         "chunks": [],
+         "source_token_length": 24,
+         "buku": null,
+         "bab": "bab-v",
+         "bagian": "bagian-kedua",
+         "paragraf": null
+      },
+      {
+         "id": "pasal-17",
+         "ref": "Pasal 17",
+         "content": "",
+         "type": "heading_pasal",
+         "bab": "bab-v",
+         "bagian": "bagian-kedua",
+         "paragraf": null,
+         "pasal": "pasal-17",
+         "level": 4
+      },
+      {
+         "pasal": "pasal-17",
+         "content": "Sebelum melaksanakan tugas dan kewenangannya, ketua, wakil ketua, dan anggota Komwasjak wajib mengangkat sumpah dan/atau janji sesuai dengan agama dan keyakinan masing-masing.",
+         "context": "KOMITE PENGAWAS PERPAJAKAN -  KEANGGOTAAN -  Tata Cara Seleksi dan Penetapan Anggota",
+         "type": "CONTENT_PASAL",
+         "additional_context": [],
+         "chunks": [],
+         "source_token_length": 22,
+         "buku": null,
+         "bab": "bab-v",
+         "bagian": "bagian-kedua",
+         "paragraf": null
+      },
+      {
+         "id": "bagian-ketiga",
+         "ref": "Bagian Ketiga",
+         "content": " Honorarium Anggota",
+         "type": "heading_bagian",
+         "bab": "bab-v",
+         "bagian": null,
+         "paragraf": null,
+         "pasal": null,
+         "level": 2
+      },
+      {
+         "id": "pasal-18",
+         "ref": "Pasal 18",
+         "content": "",
+         "type": "heading_pasal",
+         "bab": "bab-v",
+         "bagian": "bagian-ketiga",
+         "paragraf": null,
+         "pasal": "pasal-18",
+         "level": 4
+      },
+      {
+         "pasal": "pasal-18",
+         "content": "(1) Dalam melaksanakan tugas dan kewenangannya, anggota Komwasjak berhak menerima honorarium sesuai dengan jabatan dalam keanggotaan Komwasjak.\n(2) Ketentuan lebih lanjut mengenai honorarium sebagaimana dimaksud pada ayat (1) ditetapkan oleh Menteri.",
+         "context": "KOMITE PENGAWAS PERPAJAKAN -  KEANGGOTAAN -  Honorarium Anggota",
+         "type": "CONTENT_PASAL",
+         "additional_context": [],
+         "chunks": [],
+         "source_token_length": 31,
+         "buku": null,
+         "bab": "bab-v",
+         "bagian": "bagian-ketiga",
+         "paragraf": null
+      },
+      {
+         "id": "bab-vi",
+         "ref": "BAB VI",
+         "content": " KODE ETIK",
+         "type": "heading_bab",
+         "bab": null,
+         "bagian": null,
+         "paragraf": null,
+         "pasal": null,
+         "level": 1
+      },
+      {
+         "id": "pasal-19",
+         "ref": "Pasal 19",
+         "content": "",
+         "type": "heading_pasal",
+         "bab": "bab-vi",
+         "bagian": null,
+         "paragraf": null,
+         "pasal": "pasal-19",
+         "level": 4
+      },
+      {
+         "pasal": "pasal-19",
+         "content": "Dalam melaksanakan tugas, fungsi, dan kewenangannya, anggota Komwasjak wajib: a. menaati dan melaksanakan peraturan perundang- undangan;\nb. menjaga kerahasiaan informasi yang diperoleh dari Badan Kebijakan Fiskal, Direktorat Jenderal Pajak, Direktorat Jenderal Bea dan Cukai, Inspektorat Jenderal, Wajib Pajak, dan pihak eksternal lainnya;\nc. menaati dan menjunjung tinggi kode etik Kementerian dan Komwasjak;\nd. bersikap independen, objektif, jujur, adil, profesional, transparan, dan akuntabel dalam pelaksanaan tugas; dan\ne. mengungkapkan benturan kepentingan atau munculnya potensi benturan kepentingan kepada Menteri.",
+         "context": "KOMITE PENGAWAS PERPAJAKAN -  KODE ETIK",
+         "type": "CONTENT_PASAL",
+         "additional_context": [],
+         "chunks": [],
+         "source_token_length": 77,
+         "buku": null,
+         "bab": "bab-vi",
+         "bagian": null,
+         "paragraf": null
+      },
+      {
+         "id": "pasal-20",
+         "ref": "Pasal 20",
+         "content": "",
+         "type": "heading_pasal",
+         "bab": "bab-vi",
+         "bagian": null,
+         "paragraf": null,
+         "pasal": "pasal-20",
+         "level": 4
+      },
+      {
+         "pasal": "pasal-20",
+         "content": "Dalam menjalankan tugas, fungsi, dan kewenangannya, anggota Komwasjak dilarang: a. menggunakan kewenangan yang dimiliki untuk kepentingan pribadi, keluarga, dan/atau golongan;\nb. memberikan rekomendasi dan/atau pendapat dalam hal terdapat benturan kepentingan;\nc. menyebarluaskan rekomendasi/opini/kajian Komwasjak yang belum bersifat final, dan/atau bertentangan dengan kebijakan Kementerian dan peraturan perundang- undangan;\nd. meminta atau menerima pemberian dari siapapun dan dalam bentuk apapun yang bertentangan dengan peraturan perundang-undangan, kode etik, dan/atau kebijakan Kementerian;\ne. menyalahgunakan data dan/atau informasi yang diperoleh dalam rangka pelaksanaan tugas dan kewenangan Komwasjak untuk kepentingan pribadi, keluarga, dan/atau golongan;\nf. melakukan perbuatan tidak terpuji yang bertentangan dengan kode etik, norma kesusilaan, dan kepatutan/kepantasan;\ng. melakukan tindakan yang dapat mencemarkan nama baik dan/atau merusak citra dan martabat Komwasjak dan Kementerian;\nh. menghilangkan dan/atau merusak barang, dokumen, dan/atau data milik negara;\ni. bersikap dan/atau bertindak diskriminatif dalam pelaksanaan tugas dan kewenangan Komwasjak; dan\nj. menjadi anggota dan/atau simpatisan aktif partai politik.",
+         "context": "KOMITE PENGAWAS PERPAJAKAN -  KODE ETIK",
+         "type": "CONTENT_PASAL",
+         "additional_context": [],
+         "chunks": [],
+         "source_token_length": 148,
+         "buku": null,
+         "bab": "bab-vi",
+         "bagian": null,
+         "paragraf": null
+      },
+      {
+         "id": "pasal-21",
+         "ref": "Pasal 21",
+         "content": "",
+         "type": "heading_pasal",
+         "bab": "bab-vi",
+         "bagian": null,
+         "paragraf": null,
+         "pasal": "pasal-21",
+         "level": 4
+      },
+      {
+         "pasal": "pasal-21",
+         "content": "(1) Dalam rangka menangani pelanggaran kode etik oleh anggota Komwasjak sebagaimana dimaksud dalam Pasal 19 dan Pasal 20, dibentuk dewan etik.\n(2) Dewan etik sebagaimana dimaksud pada ayat (1) terdiri atas Menteri, Wakil Menteri, dan pihak independen yang ditunjuk oleh Menteri.",
+         "context": "KOMITE PENGAWAS PERPAJAKAN -  KODE ETIK",
+         "type": "CONTENT_PASAL",
+         "additional_context": [],
+         "chunks": [],
+         "source_token_length": 41,
+         "buku": null,
+         "bab": "bab-vi",
+         "bagian": null,
+         "paragraf": null
+      },
+      {
+         "id": "bab-vii",
+         "ref": "BAB VII",
+         "content": " EVALUASI KINERJA",
+         "type": "heading_bab",
+         "bab": null,
+         "bagian": null,
+         "paragraf": null,
+         "pasal": null,
+         "level": 1
+      },
+      {
+         "id": "pasal-22",
+         "ref": "Pasal 22",
+         "content": "",
+         "type": "heading_pasal",
+         "bab": "bab-vii",
+         "bagian": null,
+         "paragraf": null,
+         "pasal": "pasal-22",
+         "level": 4
+      },
+      {
+         "pasal": "pasal-22",
+         "content": "(1) Komwasjak menetapkan target kinerja tahunan untuk setiap anggota dan/atau secara kolektif yang disetujui oleh Menteri.\n(2) Pencapaian target kinerja sebagaimana dimaksud pada ayat (1) dievaluasi secara periodik paling sedikit 2 (dua) kali dalam 1 (satu) tahun oleh Menteri.\n(3) Evaluasi sebagaimana dimaksud pada ayat (2) dapat dilaksanakan oleh Wakil Menteri.",
+         "context": "KOMITE PENGAWAS PERPAJAKAN -  EVALUASI KINERJA",
+         "type": "CONTENT_PASAL",
+         "additional_context": [],
+         "chunks": [],
+         "source_token_length": 51,
+         "buku": null,
+         "bab": "bab-vii",
+         "bagian": null,
+         "paragraf": null
+      },
+      {
+         "id": "pasal-23",
+         "ref": "Pasal 23",
+         "content": "",
+         "type": "heading_pasal",
+         "bab": "bab-vii",
+         "bagian": null,
+         "paragraf": null,
+         "pasal": "pasal-23",
+         "level": 4
+      },
+      {
+         "pasal": "pasal-23",
+         "content": "Hasil evaluasi sebagaimana dimaksud dalam Pasal 22 ayat (2) dan ayat (3) dapat menjadi bahan pertimbangan Menteri antara lain dalam: a. penunjukan kembali anggota Komwasjak;\nb. pemberhentian anggota Komwasjak; dan/atau\nc. penetapan target kinerja dan program pengawasan Komwasjak tahun berikutnya.",
+         "context": "KOMITE PENGAWAS PERPAJAKAN -  EVALUASI KINERJA",
+         "type": "CONTENT_PASAL",
+         "additional_context": [],
+         "chunks": [],
+         "source_token_length": 40,
+         "buku": null,
+         "bab": "bab-vii",
+         "bagian": null,
+         "paragraf": null
+      },
+      {
+         "id": "bab-viii",
+         "ref": "BAB VIII",
+         "content": " PELAPORAN",
+         "type": "heading_bab",
+         "bab": null,
+         "bagian": null,
+         "paragraf": null,
+         "pasal": null,
+         "level": 1
+      },
+      {
+         "id": "pasal-24",
+         "ref": "Pasal 24",
+         "content": "",
+         "type": "heading_pasal",
+         "bab": "bab-viii",
+         "bagian": null,
+         "paragraf": null,
+         "pasal": "pasal-24",
+         "level": 4
+      },
+      {
+         "pasal": "pasal-24",
+         "content": "(1) Komwasjak melaporkan hasil pelaksanaan tugas kepada Menteri secara berkala paling sedikit 1 (satu) kali dalam 1 (satu) semester.\n(2) Komwasjak dapat menyampaikan laporan (atensi) pelaksanaan tugas segera kepada Menteri dalam hal terdapat informasi penting dan/atau merupakan evaluasi atas isu terkini atau kejadian yang menjadi perhatian pimpinan Kementerian dan/atau publik.",
+         "context": "KOMITE PENGAWAS PERPAJAKAN -  PELAPORAN",
+         "type": "CONTENT_PASAL",
+         "additional_context": [],
+         "chunks": [],
+         "source_token_length": 50,
+         "buku": null,
+         "bab": "bab-viii",
+         "bagian": null,
+         "paragraf": null
+      },
+      {
+         "id": "bab-ix",
+         "ref": "BAB IX",
+         "content": " KETENTUAN PERALIHAN",
+         "type": "heading_bab",
+         "bab": null,
+         "bagian": null,
+         "paragraf": null,
+         "pasal": null,
+         "level": 1
+      },
+      {
+         "id": "pasal-25",
+         "ref": "Pasal 25",
+         "content": "",
+         "type": "heading_pasal",
+         "bab": "bab-ix",
+         "bagian": null,
+         "paragraf": null,
+         "pasal": "pasal-25",
+         "level": 4
+      },
+      {
+         "pasal": "pasal-25",
+         "content": "(1) Badan Kebijakan Fiskal, Direktorat Jenderal Pajak, Direktorat Jenderal Bea dan Cukai, tetap melakukan tindak lanjut atas rekomendasi Komwasjak yang disampaikan sebelum Peraturan Menteri ini berlaku.",
+         "context": "KOMITE PENGAWAS PERPAJAKAN -  KETENTUAN PERALIHAN",
+         "type": "CONTENT_PASAL",
+         "additional_context": [],
+         "chunks": [],
+         "source_token_length": 26,
+         "buku": null,
+         "bab": "bab-ix",
+         "bagian": null,
+         "paragraf": null
+      },
+      {
+         "content": "(2) Kajian dan/atau penanganan pengaduan yang sedang berlangsung dilaksanakan berdasarkan Peraturan Menteri ini."
+      },
+      {
+         "id": "bab-x",
+         "ref": "BAB X",
+         "content": " KETENTUAN PENUTUP",
+         "type": "heading_bab",
+         "bab": null,
+         "bagian": null,
+         "paragraf": null,
+         "pasal": null,
+         "level": 1
+      },
+      {
+         "id": "pasal-26",
+         "ref": "Pasal 26",
+         "content": "",
+         "type": "heading_pasal",
+         "bab": "bab-x",
+         "bagian": null,
+         "paragraf": null,
+         "pasal": "pasal-26",
+         "level": 4
+      },
+      {
+         "pasal": "pasal-26",
+         "content": "Pada saat Peraturan Menteri ini mulai berlaku: a. Peraturan Menteri Keuangan Nomor 54/PMK.09/2008 tentang Komite Pengawas Perpajakan;\nb. Peraturan Menteri Keuangan Nomor 63/PMK.09/2016 tentang Perubahan atas Peraturan Menteri Keuangan Nomor 54/PMK.09/2008 tentang Komite Pengawas Perpajakan (Berita Negara Republik Indonesia Tahun 2016 Nomor 636); dan\nc. Peraturan Menteri Keuangan Nomor 18/PMK.01/2020 tentang Perubahan Kedua atas Peraturan Menteri Keuangan Nomor 54/PMK.09/2008 tentang Komite Pengawas Perpajakan (Berita Negara Republik Indonesia Tahun 2020 Nomor 239), dicabut dan dinyatakan tidak berlaku.",
+         "context": "KOMITE PENGAWAS PERPAJAKAN -  KETENTUAN PENUTUP",
+         "type": "CONTENT_PASAL",
+         "additional_context": [],
+         "chunks": [],
+         "source_token_length": 76,
+         "buku": null,
+         "bab": "bab-x",
+         "bagian": null,
+         "paragraf": null
+      },
+      {
+         "id": "pasal-27",
+         "ref": "Pasal 27",
+         "content": "",
+         "type": "heading_pasal",
+         "bab": "bab-x",
+         "bagian": null,
+         "paragraf": null,
+         "pasal": "pasal-27",
+         "level": 4
+      },
+      {
+         "pasal": "pasal-27",
+         "content": "Peraturan Menteri ini mulai berlaku pada tanggal diundangkan. Agar setiap orang mengetahuinya, memerintahkan pengundangan Peraturan Menteri ini dengan penempatannya dalam Berita Negara Republik Indonesia.",
+         "context": "KOMITE PENGAWAS PERPAJAKAN -  KETENTUAN PENUTUP",
+         "type": "CONTENT_PASAL",
+         "additional_context": [],
+         "chunks": [],
+         "source_token_length": 24,
+         "buku": null,
+         "bab": "bab-x",
+         "bagian": null,
+         "paragraf": null
+      },
+      {
+         "content": "Ditetapkan di Jakarta pada tanggal 16 Januari 2023"
+      },
+      {
+         "content": "MENTERI KEUANGAN REPUBLIK INDONESIA, ttd."
+      },
+      {
+         "content": "SRI MULYANI INDRAWATI Diundangkan di Jakarta pada tanggal 17 Januari 2023 MENTERI HUKUM DAN HAK ASASI MANUSIA REPUBLIK INDONESIA, ttd. YASONNA H. LAOLY"
+      },
+      {
+         "content": "Wajib Pajak adalah orang pribadi atau badan, meliputi pembayar pajak, pemotong pajak, dan pemungut pajak, yang mempunyai hak dan kewajiban perpajakan sesuai dengan ketentuan peraturan perundang-undangan perpajakan dan termasuk di bidang kepabeanan dan cukai.",
+         "alias": "Wajib Pajak",
+         "term": "Wajib Pajak",
+         "chunks": [],
+         "type": "DEFINITION"
+      },
+      {
+         "content": "Komite Pengawas Perpajakan yang selanjutnya disebut Komwasjak adalah komite nonstruktural yang bersifat independen dalam melakukan fungsi pengawasan aspek strategis bidang Perpajakan.",
+         "alias": "Komwasjak",
+         "term": "Komite Pengawas Perpajakan",
+         "chunks": [],
+         "type": "DEFINITION"
+      },
+      {
+         "content": "Wakil Menteri adalah Wakil Menteri yang menyelenggarakan urusan pemerintahan di bidang keuangan negara.",
+         "alias": "Wakil Menteri",
+         "term": "Wakil Menteri",
+         "chunks": [],
+         "type": "DEFINITION"
+      },
+      {
+         "content": "Kementerian adalah kementerian yang menyelenggarakan urusan pemerintahan di bidang keuangan negara.",
+         "alias": "Kementerian",
+         "term": "Kementerian",
+         "chunks": [],
+         "type": "DEFINITION"
+      },
+      {
+         "content": "Menteri adalah menteri yang menyelenggarakan urusan pemerintahan di bidang keuangan negara.",
+         "alias": "Menteri",
+         "term": "Menteri",
+         "chunks": [],
+         "type": "DEFINITION"
+      }
+   ]
+}
