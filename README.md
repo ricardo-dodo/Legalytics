@@ -4,6 +4,22 @@
 
 Legal Extraction API is a powerful tool designed to extract structured information from legal documents using natural language processing (NLP) techniques. This API aims to streamline the process of analyzing and extracting key insights from legal documents, making it easier for legal professionals, researchers, and developers to access and utilize valuable information contained within legal texts.
 
+### Installation
+
+1. Build the docker image
+
+   ```
+   docker build -t legalytics .
+
+
+   ```
+2. Run the docker container
+
+   ```
+   docker run -p 3000:3000 legalytics
+
+   ```
+
 ### Key Features:
 
 1. Text Extraction: The API can efficiently extract text from various types of legal documents, including contracts, court opinions, statutes, and more.
