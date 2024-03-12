@@ -2,15 +2,11 @@
 
 import fs from 'fs';
 import { exec } from 'child_process';
-import { NextApiRequest, NextApiResponse } from 'next';
 
-export default async function handler(req, res) {
+export default async function handler(_req, res) {
     try {
-        // Read data from data.json
-        const jsonData = fs.readFileSync('./data.json', 'utf-8');
-        
         // Execute extraction.py script
-        exec('python ./extraction.py', (error, stdout, stderr) => {
+        exec('python ./extraction.py', (error, stdout, _stderr) => {
             if (error) {
                 console.error(`Error executing extraction.py: ${error}`);
                 return res.status(500).json({ error: 'Internal Server Error' });
