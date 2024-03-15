@@ -1,6 +1,7 @@
 import re
 import json
 import pandas as pd
+import os
 from dotenv import load_dotenv
 from pandas import json_normalize
 from collections import Counter

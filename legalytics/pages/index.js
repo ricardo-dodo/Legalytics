@@ -7,13 +7,14 @@ export default function Dashboard() {
 
   useEffect(() => {
     const fetchData = async () => {
-      const res = await axios.get('/api/process-data?document_id=123'); // Example query
+      const res = await axios.get('/api/process-data?document_id=66-pmk.02-2013'); // Example query
       setData(res.data);
     };
     fetchData();
   }, []);
 
   if (!data) return <p>Loading...</p>;
+
 
   return (
     <div className={styles.container}>
