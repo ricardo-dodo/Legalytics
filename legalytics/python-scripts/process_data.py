@@ -124,19 +124,6 @@ def process_record(record, ner_pipeline):
 
     return result_dict
 
-# Dummy function that simulates data processing
-def process_document(document_id):
-    return {
-        "document_id": document_id,
-        "status": "processed",
-        "data": ["item1", "item2", "item3"]
-    }
-
-if __name__ == "__main__":
-    document_id = sys.argv[1] if len(sys.argv) > 1 else ""
-    result = process_document(document_id)
-    print(json.dumps(result))  # Output the result as a JSON string
-
 def process_data(document_id):
     try:
         # Existing setup for NER model
@@ -181,3 +168,7 @@ def process_data(document_id):
         # Also return the error message as a JSON string
         return error_message
 
+if __name__ == "__main__":
+    document_id = sys.argv[1] if len(sys.argv) > 1 else ""
+    result = process_data(document_id)
+    print(json.dumps(result))  # Output the result as a JSON string
