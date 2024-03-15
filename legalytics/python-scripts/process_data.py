@@ -129,12 +129,6 @@ def process_record(record, ner_pipeline):
 
     return result_dict
 
-<<<<<<< HEAD
-=======
-
-
-
->>>>>>> 501b9d8 (update js)
 def process_data(document_id):
     try:
         # Existing setup for NER model
@@ -179,8 +173,4 @@ def process_data(document_id):
 if __name__ == "__main__":
     document_id = sys.argv[1] if len(sys.argv) > 1 else ""
     result = process_data(document_id)
-<<<<<<< HEAD
     print(json.dumps(result))  # Output the result as a JSON string
-=======
-    print(json.dumps(result))  # Output the result as a JSON string
->>>>>>> 501b9d8 (update js)
