@@ -2,6 +2,7 @@ import re
 import json
 import pandas as pd
 import os
+import sys
 from dotenv import load_dotenv
 from pandas import json_normalize
 from collections import Counter
@@ -123,38 +124,60 @@ def process_record(record, ner_pipeline):
 
     return result_dict
 
-def process_data(document_id):
-    # Set up the IndoBERT NER model
-    model_name = "indobenchmark/indobert-base-p1"
-    tokenizer = AutoTokenizer.from_pretrained(model_name)
-    model = AutoModelForTokenClassification.from_pretrained(model_name)
-    ner_pipeline = pipeline("ner", model="cahya/bert-base-indonesian-522M", tokenizer="cahya/bert-base-indonesian-522M")
-
-    flat_data = retrieve_document(document_id)
-    flat_data = flat_data.dropna(subset=['content'])
-
-    processed_records = []
-    for index, row in flat_data.iterrows():
-        result_dict = process_record(row, ner_pipeline)
-        processed_records.append(result_dict)
-
-    # Prepare data for the word cloud
-    content_words = [word for record in processed_records for word in record['content'].split()]
-    word_counts = Counter(content_words)
-    word_cloud_data = [{'text': word, 'value': count} for word, count in word_counts.items()]
-
-    # Prepare data for the tables
-    money_data = [{'value': money} for record in processed_records for money in record['money']]
-    prohibition_data = [{'text': prohibition} for record in processed_records for prohibition in record['prohibitions']]
-    date_data = [{'date': date} for record in processed_records for date in record['dates']]
-
-    result = {
-        'wordCloud': word_cloud_data,
-        'tables': {
-            'money': money_data,
-            'prohibitions': prohibition_data,
-            'dates': date_data
-        }
+# Dummy function that simulates data processing
+def process_document(document_id):
+    return {
+        "document_id": document_id,
+        "status": "processed",
+        "data": ["item1", "item2", "item3"]
     }
 
-    return json.dumps(result)
+if __name__ == "__main__":
+    document_id = sys.argv[1] if len(sys.argv) > 1 else ""
+    result = process_document(document_id)
+    print(json.dumps(result))  # Output the result as a JSON string
+
+def process_data(document_id):
+    try:
+        # Existing setup for NER model
+        model_name = "indobenchmark/indobert-base-p1"
+        tokenizer = AutoTokenizer.from_pretrained(model_name)
+        model = AutoModelForTokenClassification.from_pretrained(model_name)
+        ner_pipeline = pipeline("ner", model=model, tokenizer=tokenizer)
+
+        flat_data = retrieve_document(document_id)
+        flat_data = flat_data.dropna(subset=['content'])
+
+        processed_records = []
+        for index, row in flat_data.iterrows():
+            result_dict = process_record(row, ner_pipeline)
+            processed_records.append(result_dict)
+
+        # Prepare data for the word cloud
+        content_words = [word for record in processed_records for word in record['content'].split()]
+        word_counts = Counter(content_words)
+        word_cloud_data = [{'text': word, 'value': count} for word, count in word_counts.items()]
+
+        # Prepare data for the tables
+        money_data = [{'value': money} for record in processed_records for money in record['money']]
+        prohibition_data = [{'text': prohibition} for record in processed_records for prohibition in record['prohibitions']]
+        date_data = [{'date': date} for record in processed_records for date in record['dates']]
+
+        result = {
+            'wordCloud': word_cloud_data,
+            'tables': {
+                'money': money_data,
+                'prohibitions': prohibition_data,
+                'dates': date_data
+            }
+        }
+
+        # Return a JSON string
+        return json.dumps(result)
+    except Exception as e:
+        # If an error occurs, print a JSON-formatted error message to stderr
+        error_message = json.dumps({'error': str(e)})
+        print(error_message, file=sys.stderr)
+        # Also return the error message as a JSON string
+        return error_message
+

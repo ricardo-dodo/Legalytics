@@ -1,47 +1,67 @@
-  // pages/api/process-data.js
-  import { PythonShell } from 'python-shell';
+// pages/api/process-data.js
+import { spawn } from "child_process";
+import path from "path";
 
-  export default async function handler(req, res) {
-  if (req.method !== 'GET') {
-    return res.status(405).json({ error: 'Method not allowed' });
+export default function handler(req, res) {
+  // Only allow GET requests
+  if (req.method !== "GET") {
+    return res.status(405).json({ error: "Method not allowed" });
   }
 
+  // Validate the presence of the document_id query parameter
   const { document_id } = req.query;
-
   if (!document_id) {
-    return res.status(400).json({ error: 'Missing document_id parameter' });
+    return res.status(400).json({ error: "Missing document_id parameter" });
   }
 
-  const options = {
-    mode: 'text',
-    pythonOptions: ['-u'], // get print results in real-time
-    scriptPath: './python-scripts',
-    args: [document_id],
-  };
+  // Construct the path to the Python script and spawn the process
+  const pythonScriptPath = path.join(
+    process.cwd(),
+    "python-scripts",
+    "process_data.py"
+  );
+  const pythonProcess = spawn("python", [pythonScriptPath, document_id]);
 
-  try {
-    const result = await new Promise((resolve, reject) => {
-      PythonShell.run('process_data.py', options, (err, results) => {
-        if (err) {
-          console.error(err);
-          return reject(new Error('Error processing data'));
-        }
+  // Variables to capture the output and errors from the Python script
+  let scriptOutput = "";
+  let scriptError = "";
 
-        // Assuming the Python script outputs valid JSON
-        try {
-          const parsedResults = JSON.parse(results[0]);
-          resolve(parsedResults);
-        } catch (parseErr) {
-          console.error(parseErr);
-          reject(new Error('Error parsing Python script output'));
-        }
-      });
-    });
+  // Capture stdout output
+  pythonProcess.stdout.on("data", (data) => {
+    scriptOutput += data.toString();
+  });
 
-    res.status(200).json(result);
-  } catch (error) {
-    console.error(error);
-    res.status(500).json({ error: error.message });
-  }
+  // Capture stderr output (if any)
+  pythonProcess.stderr.on("data", (data) => {
+    scriptError += data.toString();
+  });
+
+  // Handle the script completion
+  pythonProcess.on("close", (code) => {
+    // Filter out specific TensorFlow oneDNN warnings from scriptError
+    const isError =
+      scriptError && !scriptError.includes("oneDNN custom operations are on");
+
+    if (code !== 0 || isError) {
+      console.error("Script execution error:", scriptError);
+      return res
+        .status(500)
+        .json({ error: "Error executing Python script", details: scriptError });
+    }
+
+    try {
+      // Attempt to parse the script output as JSON
+      const processedData = JSON.parse(scriptOutput);
+      res.status(200).json(processedData);
+    } catch (parseError) {
+      // Handle JSON parsing errors
+      console.error("Error parsing processed data:", parseError);
+      return res
+        .status(500)
+        .json({
+          error: "Error parsing processed data",
+          rawOutput: scriptOutput,
+        });
+    }
+  });
 }
-
