@@ -13,6 +13,11 @@ from transformers import AutoTokenizer, AutoModelForTokenClassification, pipelin
 
 from opensearchpy import OpenSearch
 
+model_name = "indobenchmark/indobert-base-p1"
+tokenizer = AutoTokenizer.from_pretrained(model_name)
+model = AutoModelForTokenClassification.from_pretrained(model_name)
+ner_pipeline = pipeline("ner", model=model, tokenizer=tokenizer)
+        
 def retrieve_document(document_id):
     # Load environment variables from .env file
     load_dotenv()
@@ -124,13 +129,16 @@ def process_record(record, ner_pipeline):
 
     return result_dict
 
+<<<<<<< HEAD
+=======
+
+
+
+>>>>>>> 501b9d8 (update js)
 def process_data(document_id):
     try:
         # Existing setup for NER model
-        model_name = "indobenchmark/indobert-base-p1"
-        tokenizer = AutoTokenizer.from_pretrained(model_name)
-        model = AutoModelForTokenClassification.from_pretrained(model_name)
-        ner_pipeline = pipeline("ner", model=model, tokenizer=tokenizer)
+        
 
         flat_data = retrieve_document(document_id)
         flat_data = flat_data.dropna(subset=['content'])
@@ -171,4 +179,8 @@ def process_data(document_id):
 if __name__ == "__main__":
     document_id = sys.argv[1] if len(sys.argv) > 1 else ""
     result = process_data(document_id)
+<<<<<<< HEAD
     print(json.dumps(result))  # Output the result as a JSON string
+=======
+    print(json.dumps(result))  # Output the result as a JSON string
+>>>>>>> 501b9d8 (update js)

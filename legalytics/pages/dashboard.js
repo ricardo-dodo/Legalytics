@@ -1,4 +1,3 @@
-// pages/dashboard.js
 import { useEffect, useState } from 'react';
 import axios from 'axios';
 import ReactWordcloud from 'react-wordcloud';
@@ -51,13 +50,13 @@ const Dashboard = () => {
   useEffect(() => {
     const fetchData = async () => {
       try {
-        const documentId = 'your-document-id';
+        const documentId = '66-pmk.02-2013'; // Make sure to replace this with your actual document ID or retrieve it dynamically
         const response = await axios.get(`/api/process-data?document_id=${documentId}`);
         setProcessedData(response.data);
-        setLoading(false);
       } catch (error) {
         console.error('Error fetching data:', error);
         setError('Failed to fetch data. Please try again.');
+      } finally {
         setLoading(false);
       }
     };
@@ -70,49 +69,37 @@ const Dashboard = () => {
   }
 
   if (error) {
-    return <div>{error}</div>;
+    return <div>Error: {error}</div>;
   }
 
-  const moneyColumns = [
-    {
-      Header: 'Money',
-      accessor: 'value',
-    },
-  ];
-
-  const prohibitionColumns = [
-    {
-      Header: 'Prohibition',
-      accessor: 'text',
-    },
-  ];
-
-  const dateColumns = [
-    {
-      Header: 'Date',
-      accessor: 'date',
-    },
-  ];
+  // Define columns for DataTables
+  const moneyColumns = [{ Header: 'Money', accessor: 'value' }];
+  const prohibitionColumns = [{ Header: 'Prohibition', accessor: 'text' }];
+  const dateColumns = [{ Header: 'Date', accessor: 'date' }];
 
   return (
     <div>
       <h1>Dashboard</h1>
-      <div>
-        <h2>Word Cloud</h2>
-        {processedData && <ReactWordcloud words={processedData.wordCloud} />}
-      </div>
-      <div>
-        <h2>Money Table</h2>
-        {processedData && <DataTable columns={moneyColumns} data={processedData.tables.money} />}
-      </div>
-      <div>
-        <h2>Prohibition Table</h2>
-        {processedData && <DataTable columns={prohibitionColumns} data={processedData.tables.prohibitions} />}
-      </div>
-      <div>
-        <h2>Date Table</h2>
-        {processedData && <DataTable columns={dateColumns} data={processedData.tables.dates} />}
-      </div>
+      {processedData && (
+        <>
+          <div>
+            <h2>Word Cloud</h2>
+            <ReactWordcloud words={processedData.wordCloud} />
+          </div>
+          <div>
+            <h2>Money Table</h2>
+            <DataTable columns={moneyColumns} data={processedData.tables.money} />
+          </div>
+          <div>
+            <h2>Prohibition Table</h2>
+            <DataTable columns={prohibitionColumns} data={processedData.tables.prohibitions} />
+          </div>
+          <div>
+            <h2>Date Table</h2>
+            <DataTable columns={dateColumns} data={processedData.tables.dates} />
+          </div>
+        </>
+      )}
     </div>
   );
 };
