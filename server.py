@@ -3,14 +3,21 @@ from fastapi.responses import JSONResponse
 
 import fitz  # PyMuPDF
 from opensearchpy import OpenSearch
+from dotenv import load_dotenv
 import uuid
 
 app = FastAPI()
+load_dotenv()
+
+opensearch_host = os.getenv("OPENSEARCH_HOST")
+opensearch_port = int(os.getenv("OPENSEARCH_PORT"))
+opensearch_username = os.getenv("OPENSEARCH_USERNAME")
+opensearch_password = os.getenv("OPENSEARCH_PASSWORD")
 
 # Koneksi ke OpenSearch
 client = OpenSearch(
-        hosts=[{'host': ('62.72.7.91'), 'port': (('9200'))}],
-        http_auth=(('admin_jdih'), ('JDIHjuara6065')),
+        hosts=[{'host': opensearch_host, 'port': opensearch_port}],
+        http_auth=(opensearch_username, opensearch_password),
         use_ssl=True,
         verify_certs=False,
         ssl_assert_hostname=False,
