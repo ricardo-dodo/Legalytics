@@ -61,7 +61,6 @@ export default function Dashboard() {
         <h2 className={styles.sectionTitle}>Word Cloud</h2>
         {renderWordCloud()}
       </div>
-
       <div className={styles.section}>
         <h2 className={styles.sectionTitle}>Money Table</h2>
         <table className={styles.table}>

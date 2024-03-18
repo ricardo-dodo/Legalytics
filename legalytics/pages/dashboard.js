@@ -17,17 +17,20 @@ export default function Dashboard() {
   const [error, setError] = useState(null);
 
   useEffect(() => {
+    console.log('Fetching data from API...'); // Log when the fetch request is made
     axios.get('/api/process-data?document_id=66-pmk.02-2013')
       .then(response => {
+        console.log('Received response from API:', response.data); // Log the received data
         setProcessedData(response.data);
         setLoading(false);
       })
-      .catch(err => {
-        console.error('Error fetching data:', err);
+      .catch(error => {
+        console.error('Error fetching data:', error);
         setError('Failed to fetch data. Please try again.');
         setLoading(false);
       });
   }, []);
+  
 
   const renderTableRows = (data) => {
     if (!data || data.length === 0) {
