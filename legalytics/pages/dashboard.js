@@ -10,9 +10,9 @@ const options = {
 
 export default function Dashboard() {
   const [processedData, setProcessedData] = useState({
-    tables: { money: [], prohibitions: [], dates: [] },
     wordCloud: [],
-  });
+    tables: { money: [], prohibitions: [], dates: [] },
+  });  
   const [loading, setLoading] = useState(true);
   const [error, setError] = useState(null);
 
@@ -108,3 +108,5 @@ export default function Dashboard() {
     </div>
   );
 }
+
+
