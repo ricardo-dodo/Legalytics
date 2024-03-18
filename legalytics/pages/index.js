@@ -1,103 +1,110 @@
 import { useEffect, useState } from 'react';
 import axios from 'axios';
-import { useTable } from 'react-table';
-import styles from '../styles/Home.module.css'; // Ensure this file exists and is properly set up
+import { WordCloud } from 'react-wordcloud';
+import styles from '../styles/Home.module.css';
 
-function DataTable({ columns, data }) {
-  const {
-    getTableProps,
-    getTableBodyProps,
-    headerGroups,
-    rows,
-    prepareRow,
-  } = useTable({
-    columns,
-    data,
-  });
-
-  return (
-    <table {...getTableProps()}>
-      <thead>
-        {headerGroups.map(headerGroup => (
-          <tr {...headerGroup.getHeaderGroupProps()}>
-            {headerGroup.headers.map(column => (
-              <th {...column.getHeaderProps()}>{column.render('Header')}</th>
-            ))}
-          </tr>
-        ))}
-      </thead>
-      <tbody {...getTableBodyProps()}>
-        {rows.map(row => {
-          prepareRow(row);
-          return (
-            <tr {...row.getRowProps()}>
-              {row.cells.map(cell => (
-                <td {...cell.getCellProps()}>{cell.render('Cell')}</td>
-              ))}
-            </tr>
-          );
-        })}
-      </tbody>
-    </table>
-  );
-}
+const options = {
+  rotations: 2,
+  rotationAngles: [-90, 0],
+};
 
 export default function Dashboard() {
-  const [processedData, setProcessedData] = useState({});
+  const [processedData, setProcessedData] = useState({
+    tables: { money: [], prohibitions: [], dates: [] },
+    wordCloud: [],
+  });
   const [loading, setLoading] = useState(true);
   const [error, setError] = useState(null);
 
   useEffect(() => {
-    const fetchData = async () => {
-      try {
-        // Ensure this endpoint matches your API route for processing the document
-        const documentedid = '66-pmk.02-2013'; 
-        const response = await axios.get(`/api/process-data?document_id=${documentedid}`);
+    axios.get('/api/process-data?document_id=66-pmk.02-2013')
+      .then(response => {
         setProcessedData(response.data);
-      } catch (err) {
-        setError('Failed to fetch data. Please try again.');
-        console.error('Error fetching data:', err);
-      } finally {
         setLoading(false);
-      }
-    };
-
-    fetchData();
+      })
+      .catch(err => {
+        console.error('Error fetching data:', err);
+        setError('Failed to fetch data. Please try again.');
+        setLoading(false);
+      });
   }, []);
 
-  if (loading) return <p>Loading...</p>;
-  if (error) return <p>Error: {error}</p>;
+  const renderTableRows = (data) => {
+    if (!data || data.length === 0) {
+      return <tr><td colSpan="2">No data available</td></tr>;
+    }
 
-  // Define columns for DataTables for money, prohibitions, and dates
-  const moneyColumns = [{ Header: 'Money', accessor: 'value' }];
-  const prohibitionColumns = [{ Header: 'Prohibition', accessor: 'text' }];
-  const dateColumns = [{ Header: 'Date', accessor: 'date' }];
+    return data.map((item, index) => (
+      <tr key={index}>
+        <td>{item.text || item.date || item.value || 'N/A'}</td>
+        <td>{item.value || 'Details (N/A)'}</td>
+      </tr>
+    ));
+  };
+
+  const renderWordCloud = () => {
+    if (!processedData.wordCloud || processedData.wordCloud.length === 0) {
+      return <div>No word cloud data available</div>;
+    }
+    return <WordCloud words={processedData.wordCloud} options={options} />;
+  };
+
+  if (loading) return <div className={styles.notice}>Loading...</div>;
+  if (error) return <div className={styles.notice}>Error: {error}</div>;
 
   return (
     <div className={styles.container}>
-      <h1>Processed Document Dashboard</h1>
-      {processedData.wordCloud && (
-        <div>
-          <h2>Word Cloud</h2>
-          <ReactWordcloud words={processedData.wordCloud} />
-        </div>
-      )}
-      {processedData.tables && (
-        <>
-          <div>
-            <h2>Money Table</h2>
-            <DataTable columns={moneyColumns} data={processedData.tables.money} />
-          </div>
-          <div>
-            <h2>Prohibition Table</h2>
-            <DataTable columns={prohibitionColumns} data={processedData.tables.prohibitions} />
-          </div>
-          <div>
-            <h2>Date Table</h2>
-            <DataTable columns={dateColumns} data={processedData.tables.dates} />
-          </div>
-        </>
-      )}
+      <h1 className={styles.title}>Dashboard</h1>
+
+      <div className={styles.section}>
+        <h2 className={styles.sectionTitle}>Word Cloud</h2>
+        {renderWordCloud()}
+      </div>
+
+      <div className={styles.section}>
+        <h2 className={styles.sectionTitle}>Money Table</h2>
+        <table className={styles.table}>
+          <thead>
+            <tr>
+              <th>Value</th>
+              <th>Details</th>
+            </tr>
+          </thead>
+          <tbody>
+            {renderTableRows(processedData.tables?.money || [])}
+          </tbody>
+        </table>
+      </div>
+
+      <div className={styles.section}>
+        <h2 className={styles.sectionTitle}>Prohibition Table</h2>
+        <table className={styles.table}>
+          <thead>
+            <tr>
+              <th>Text</th>
+              <th>Details</th>
+            </tr>
+          </thead>
+          <tbody>
+            {renderTableRows(processedData.tables?.prohibitions || [])}
+          </tbody>
+        </table>
+      </div>
+
+      <div className={styles.section}>
+        <h2 className={styles.sectionTitle}>Date Table</h2>
+        <table className={styles.table}>
+          <thead>
+            <tr>
+              <th>Date</th>
+              <th>Details</th>
+            </tr>
+          </thead>
+          <tbody>
+            {renderTableRows(processedData.tables?.dates || [])}
+          </tbody>
+        </table>
+      </div>
     </div>
   );
 }
