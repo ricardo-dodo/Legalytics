@@ -7,7 +7,6 @@ from dotenv import load_dotenv
 from pandas import json_normalize
 from collections import Counter
 
-
 import torch
 from transformers import AutoTokenizer, AutoModelForTokenClassification, pipeline
 
@@ -24,6 +23,9 @@ def retrieve_document(document_id):
 
     # Get OpenSearch connection parameters from environment variables
     opensearch_host = os.getenv("OPENSEARCH_HOST")
+    if not opensearch_host:
+        print("OPENSEARCH_HOST environment variable not set.")
+        sys.exit(1) # Exit or handle as appropriate for your application
     opensearch_port = int(os.getenv("OPENSEARCH_PORT"))
     opensearch_username = os.getenv("OPENSEARCH_USERNAME")
     opensearch_password = os.getenv("OPENSEARCH_PASSWORD")
@@ -132,9 +134,9 @@ def process_record(record, ner_pipeline):
 def process_data(document_id):
     try:
         # Existing setup for NER model
-        
-
         flat_data = retrieve_document(document_id)
+        if flat_data is None or flat_data.empty:
+            print("No data retrieved or data is empty.")
         flat_data = flat_data.dropna(subset=['content'])
 
         processed_records = []
@@ -142,12 +144,15 @@ def process_data(document_id):
             result_dict = process_record(row, ner_pipeline)
             processed_records.append(result_dict)
 
-        # Prepare data for the word cloud
+        # Prepare data for the word cloud, but only include the top 5 words
         content_words = [word for record in processed_records for word in record['content'].split()]
         word_counts = Counter(content_words)
-        word_cloud_data = [{'text': word, 'value': count} for word, count in word_counts.items()]
 
-        # Prepare data for the tables
+        # Now, take only the top 5 most common words
+        word_counts_top_5 = word_counts.most_common(5)
+        word_cloud_data = [{'text': word, 'value': count} for word, count in word_counts_top_5]
+
+        # Prepare data for the tables as before
         money_data = [{'value': money} for record in processed_records for money in record['money']]
         prohibition_data = [{'text': prohibition} for record in processed_records for prohibition in record['prohibitions']]
         date_data = [{'date': date} for record in processed_records for date in record['dates']]
@@ -170,7 +175,16 @@ def process_data(document_id):
         # Also return the error message as a JSON string
         return error_message
 
+
 if __name__ == "__main__":
     document_id = sys.argv[1] if len(sys.argv) > 1 else ""
-    result = process_data(document_id)
-    print(json.dumps(result))  # Output the result as a JSON string
+    if not document_id: 
+        print("Document ID not provided.")
+        sys.exit(1) # Exit indicating failure due to missing argument
+
+    try:
+        result = process_data(document_id)
+        print(json.dumps(result))  # Ensure output is always in JSON format
+    except Exception as e:
+        print(json.dumps({"error": str(e)}))  # Print errors in JSON format as well
+
