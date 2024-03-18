@@ -51,7 +51,8 @@ export default function Dashboard() {
     const fetchData = async () => {
       try {
         // Ensure this endpoint matches your API route for processing the document
-        const response = await axios.get('/api/process-data?document_id=66-pmk.02-2013');
+        const documentedid = '66-pmk.02-2013'; 
+        const response = await axios.get(`/api/process-data?document_id=${documentedid}`);
         setProcessedData(response.data);
       } catch (err) {
         setError('Failed to fetch data. Please try again.');

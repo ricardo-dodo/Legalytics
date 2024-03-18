@@ -1,6 +1,5 @@
 import { useEffect, useState } from 'react';
 import axios from 'axios';
-import ReactWordcloud from 'react-wordcloud';
 import { useTable } from 'react-table';
 
 function DataTable({ columns, data }) {
@@ -50,7 +49,7 @@ const Dashboard = () => {
   useEffect(() => {
     const fetchData = async () => {
       try {
-        const documentId = '66-pmk.02-2013'; // Make sure to replace this with your actual document ID or retrieve it dynamically
+        const documentId = '66-pmk.02-2013'; // Replace with your actual document ID or retrieve it dynamically
         const response = await axios.get(`/api/process-data?document_id=${documentId}`);
         setProcessedData(response.data);
       } catch (error) {
@@ -83,8 +82,14 @@ const Dashboard = () => {
       {processedData && (
         <>
           <div>
-            <h2>Word Cloud</h2>
-            <ReactWordcloud words={processedData.wordCloud} />
+            <h2>Word Frequencies</h2>
+            <ul>
+              {processedData.wordCloud.map(wordItem => (
+                <li key={wordItem.text}>
+                  {wordItem.text}: {wordItem.value}
+                </li>
+              ))}
+            </ul>
           </div>
           <div>
             <h2>Money Table</h2>
