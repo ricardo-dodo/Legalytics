@@ -16,7 +16,7 @@ model_name = "indobenchmark/indobert-base-p1"
 tokenizer = AutoTokenizer.from_pretrained(model_name)
 model = AutoModelForTokenClassification.from_pretrained(model_name)
 ner_pipeline = pipeline("ner", model=model, tokenizer=tokenizer)
-        
+
 def retrieve_document(document_id):
     # Load environment variables from .env file
     load_dotenv()
@@ -146,7 +146,12 @@ def process_data(document_id):
 
         # Prepare data for the word cloud, but only include the top 5 words
         content_words = [word for record in processed_records for word in record['content'].split()]
-        word_counts = Counter(content_words)
+
+        # Use IndoBERT tokenizer to remove stopwords
+        stopwords = tokenizer.tokenize(' '.join(content_words))
+        filtered_words = [word for word in content_words if word not in stopwords]
+
+        word_counts = Counter(filtered_words)
 
         # Now, take only the top 5 most common words
         word_counts_top_5 = word_counts.most_common(5)
@@ -187,4 +192,3 @@ if __name__ == "__main__":
         print(json.dumps(result))  # Ensure output is always in JSON format
     except Exception as e:
         print(json.dumps({"error": str(e)}))  # Print errors in JSON format as well
-
