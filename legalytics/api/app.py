@@ -158,8 +158,8 @@ def process_data(document_id):
         word_counts = Counter(filtered_words)
 
         # Now, take only the top 5 most common words
-        word_counts_top_5 = word_counts.most_common(5)
-        word_cloud_data = [{'text': word, 'value': count} for word, count in word_counts_top_5]
+        word_counts_30 = word_counts.most_common(30)
+        word_cloud_data = [{'text': word, 'value': count} for word, count in word_counts_30]
 
         # Prepare data for the tables as before
         money_data = [{'value': money} for record in processed_records for money in record['money']]
