@@ -1,102 +1,60 @@
-import os
-import sys
+
+import re
 import json
-from flask import Flask, request, jsonify
+import pandas as pd
+import os
 from dotenv import load_dotenv
 from pandas import json_normalize
-from opensearchpy import OpenSearch
+from collections import Counter
+
+import torch
 from transformers import AutoTokenizer, AutoModelForTokenClassification, pipeline
+
+from opensearchpy import OpenSearch
+
+from flask import Flask, jsonify, request
 
 app = Flask(__name__)
 
-# Load environment variables from .env file
-load_dotenv()
-
-# Set up OpenSearch connection
-opensearch_host = os.getenv("OPENSEARCH_HOST")
-opensearch_port = int(os.getenv("OPENSEARCH_PORT"))
-opensearch_username = os.getenv("OPENSEARCH_USERNAME")
-opensearch_password = os.getenv("OPENSEARCH_PASSWORD")
-
-client = OpenSearch(
-    hosts=[{'host': opensearch_host, 'port': opensearch_port}],
-    http_auth=(opensearch_username, opensearch_password),
-    use_ssl=True,
-    verify_certs=False,
-    ssl_assert_hostname=False,
-    ssl_show_warn=False
-)
-
-# Initialize NER model
 model_name = "indobenchmark/indobert-base-p1"
 tokenizer = AutoTokenizer.from_pretrained(model_name)
 model = AutoModelForTokenClassification.from_pretrained(model_name)
 ner_pipeline = pipeline("ner", model=model, tokenizer=tokenizer)
 
-@app.route('/process_document', methods=['POST'])
-def process_document():
-    try:
-        document_id = request.json.get('document_id', '')
-        if not document_id:
-            return jsonify({"error": "Document ID not provided"}), 400
+def retrieve_document(document_id):
+    # Load environment variables from .env file
+    load_dotenv()
 
-        # Retrieve document
-        response = client.get(index="law_analyzer_new4", id=document_id)
-        data = response['_source']
-        flat_data = json_normalize(data, record_path=['Blocks'], 
-                                   meta=['PeraturanId', 'Nomor', 'Slug', 'Judul', 'No', 'Tahun', 'Bentuk', 'Status', 'Bidang', 'Source', 'PeraturanGoId', 'TanggalPenetapan', 'TanggalPengundangan'])
-        flat_data = flat_data.drop(columns=['chunks'])
-        flat_data = flat_data.dropna(subset=['content'])
+    # Get OpenSearch connection parameters from environment variables
+    opensearch_host = os.getenv("OPENSEARCH_HOST")
+    if not opensearch_host:
+        raise Exception("OPENSEARCH_HOST environment variable not set.")
+    opensearch_port = int(os.getenv("OPENSEARCH_PORT"))
+    opensearch_username = os.getenv("OPENSEARCH_USERNAME")
+    opensearch_password = os.getenv("OPENSEARCH_PASSWORD")
 
-        processed_records = []
-        for _, row in flat_data.iterrows():
-            result_dict = process_record(row, ner_pipeline)
-            processed_records.append(result_dict)
+    # Set up OpenSearch connection
+    client = OpenSearch(
+        hosts=[{'host': opensearch_host, 'port': opensearch_port}],
+        http_auth=(opensearch_username, opensearch_password),
+        use_ssl=True,
+        verify_certs=False,
+        ssl_assert_hostname=False,
+        ssl_show_warn=False
+    )
 
-        # Prepare response data
-        content_words = [word for record in processed_records for word in record['content'].split()]
-        stopwords = tokenizer.tokenize(' '.join(content_words))
-        filtered_words = [word for word in content_words if word not in stopwords]
-        word_counts = Counter(filtered_words)
-        word_counts_top_5 = word_counts.most_common(5)
-        word_cloud_data = [{'text': word, 'value': count} for word, count in word_counts_top_5]
-        money_data = [{'value': money} for record in processed_records for money in record['money']]
-        prohibition_data = [{'text': prohibition} for record in processed_records for prohibition in record['prohibitions']]
-        date_data = [{'date': date} for record in processed_records for date in record['dates']]
+    # Retrieve the document by ID
+    response = client.get(index="law_analyzer_new4", id=document_id)
 
-        result = {
-            'wordCloud': word_cloud_data,
-            'tables': {
-                'money': money_data,
-                'prohibitions': prohibition_data,
-                'dates': date_data
-            }
-        }
+    # Extract the document source
+    data = response['_source']
 
-        return jsonify(result), 200
-    except Exception as e:
-        return jsonify({"error": str(e)}), 500
+    # Normalize the nested data
+    flat_data = json_normalize(data, record_path=['Blocks'], 
+                               meta=['PeraturanId', 'Nomor', 'Slug', 'Judul', 'No', 'Tahun', 'Bentuk', 'Status', 'Bidang', 'Source', 'PeraturanGoId', 'TanggalPenetapan', 'TanggalPengundangan'])
 
-def process_record(record, ner_pipeline):
-    content = record['content']
-    if not content:
-        return {
-            'content': content,
-            'money': [],
-            'dates': [],
-            'prohibitions': [],
-            'named_entities': []
-        }
-
-    result_dict = {
-        'content': content,
-        'money': extract_money(content),
-        'dates': extract_dates(content),
-        'prohibitions': extract_prohibitions(content),
-    }
-    ner_results = apply_ner(content, ner_pipeline)
-
-    return result_dict
+    flat_data = flat_data.drop(columns=['chunks'])
+    return flat_data
 
 def extract_prohibitions(text):
     prohibition_pattern = re.compile(r'(?:dilarang|Dilarang):\s*([a-z](?:(?!(?:dilarang|Dilarang):).)*)\.', re.IGNORECASE | re.DOTALL)
@@ -154,5 +112,78 @@ def apply_ner(text, ner_pipeline, max_length=512):
 
     return ner_results
 
+def process_record(record, ner_pipeline):
+    content = record['content']
+
+    if not content:
+        return {
+            'content': content,
+            'money': [],
+            'dates': [],
+            'prohibitions': [],
+            'named_entities': []
+        }
+
+    result_dict = {
+        'content': content,
+        'money': extract_money(content),
+        'dates': extract_dates(content),
+        'prohibitions': extract_prohibitions(content),
+    }
+    ner_results = apply_ner(content, ner_pipeline)
+
+    return result_dict
+
+
+def process_data(document_id):
+    try:
+        flat_data = retrieve_document(document_id)
+        if flat_data is None or flat_data.empty:
+            raise Exception("No data retrieved or data is empty.")
+        flat_data = flat_data.dropna(subset=['content'])
+
+        processed_records = []
+        for index, row in flat_data.iterrows():
+            result_dict = process_record(row, ner_pipeline)
+            processed_records.append(result_dict)
+
+        content_words = [word for record in processed_records for word in record['content'].split()]
+        word_counts = Counter(content_words)
+
+        word_counts_top_5 = word_counts.most_common(5)
+        word_cloud_data = [{'text': word, 'value': count} for word, count in word_counts_top_5]
+
+        money_data = [{'value': money} for record in processed_records for money in record['money']]
+        prohibition_data = [{'text': prohibition} for record in processed_records for prohibition in record['prohibitions']]
+        date_data = [{'date': date} for record in processed_records for date in record['dates']]
+
+        result = {
+            'wordCloud': word_cloud_data,
+            'tables': {
+                'money': money_data,
+                'prohibitions': prohibition_data,
+                'dates': date_data
+            }
+        }
+
+        return result
+    except Exception as e:
+        error_message = str(e)
+        print(error_message)
+        return {'error': error_message}
+
+@app.route('/process', methods=['POST'])
+def process_route():
+    document_id = request.json.get('document_id', '')
+    if not document_id:
+        return jsonify({"error": "Document ID not provided."}), 400
+
+    try:
+        result = process_data(document_id)
+        return jsonify(result)
+    except Exception as e:
+        return jsonify({"error": str(e)}), 500
+
 if __name__ == "__main__":
-    app.run(debug=True) # Remove debug=True in production
+    app.run()
+
