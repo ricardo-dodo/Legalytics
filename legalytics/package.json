@@ -9,7 +9,9 @@
     "lint": "next lint"
   },
   "dependencies": {
+    "@visx/responsive": "^3.10.2",
     "@visx/scale": "^3.5.0",
+    "@visx/text": "^3.3.0",
     "@visx/wordcloud": "^3.3.0",
     "axios": "^1.6.7",
     "json-bigint": "^1.0.0",
