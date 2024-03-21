@@ -88,3 +88,60 @@
   flex: 1; /* Adjust based on layout needs */
   min-width: 280px; /* Ensure items do not get too small on narrow screens */
 }
+
+/* Home.module.css */
+.container {
+  padding: 2rem;
+  text-align: center;
+}
+
+.title {
+  font-size: 2rem;
+  margin-bottom: 2rem;
+}
+
+.notice {
+  color: #ff0000;
+  margin: 1rem 0;
+}
+
+.section {
+  margin-bottom: 2rem;
+}
+
+.sectionTitle {
+  font-size: 1.5rem;
+  margin: 1rem 0;
+}
+
+.table {
+  margin: 0 auto;
+  width: 80%;
+  border-collapse: collapse;
+}
+
+.table th,
+.table td {
+  border: 1px solid #ddd;
+  padding: 8px;
+  text-align: left;
+}
+
+.table th {
+  background-color: #04AA6D;
+  color: white;
+}
+
+/* Center the SVG container */
+.svgContainer {
+    display: block; /* Use flex if you want to use justify-content for centering */
+    margin: 0 auto; /* Centering horizontally */
+    width: 800px; /* Fixed width, adjust based on your SVG size */
+    height: 400px; /* Fixed height */
+}
+
+#word-cloud {
+  width: 100%;
+  height: 100%;
+}
+
