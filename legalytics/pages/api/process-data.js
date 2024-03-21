@@ -1,26 +1,28 @@
+// legalytics/pages/api/process-data.js
+
 import { spawn } from 'child_process';
 import path from 'path';
+import { parse } from 'json-bigint';
+import axios from 'axios';
 
 export default function handler(req, res) {
   console.log('Received request:', req.method, req.query); // Log incoming request
 
   if (req.method !== 'GET') {
     console.error('Non-GET request made');
-    res.status(405).json({ error: 'Method not allowed' });
-    return;
+    return res.status(405).json({ error: 'Method not allowed' });
   }
 
   const { document_id } = req.query;
   if (!document_id) {
     console.error('Missing document_id parameter');
-    res.status(400).json({ error: 'Missing document_id parameter' });
-    return;
+    return res.status(400).json({ error: 'Missing document_id parameter' });
   }
 
   const pythonScriptPath = path.join(process.cwd(), 'python-scripts', 'process_data.py');
   console.log('Python script path:', pythonScriptPath); // Log Python script path
 
-  const pythonProcess = spawn('python3', [pythonScriptPath, document_id]);
+  const pythonProcess = spawn('python', [pythonScriptPath, document_id]);
   console.log('Python process spawned'); // Log when Python process is spawned
 
   let scriptOutput = '';
@@ -47,17 +49,15 @@ export default function handler(req, res) {
     if (code !== 0) {
       console.error(`Python script exited with code ${code}`);
       console.error(`Error output: ${scriptError}`);
-      res.status(500).json({ error: 'Python script execution failed', details: scriptError });
-      return;
+      return res.status(500).json({ error: 'Python script execution failed', details: scriptError });
     }
 
     try {
       console.log('Script output:', scriptOutput); // Log the raw output from Python
-      const processedData = JSON.parse(scriptOutput);
+      const processedData = parse(scriptOutput);
       if (processedData.error) {
         console.error('Error from Python script:', processedData.error);
-        res.status(500).json({ error: 'Error from Python script', details: processedData.error });
-        return;
+        return res.status(500).json({ error: 'Error from Python script', details: processedData.error });
       }
       console.log('Sending response:', processedData); // Log the response being sent
       res.status(200).json(processedData);
