@@ -10,8 +10,7 @@ import torch
 from transformers import AutoTokenizer, AutoModelForTokenClassification, pipeline
 from opensearchpy import OpenSearch
 import sys
-from stopwords_id import stopwords
-
+from nltk.tokenize import word_tokenize
 
 # Load environment variables from .env file
 load_dotenv()
@@ -185,6 +184,10 @@ def process_record(record):
 
     return result_dict
 
+# Load stopwords from file
+stopword_file = "tala-stopwords-indonesia.txt"
+with open(stopword_file, "r") as f:
+    stopword_list = [line.strip().split()[0] for line in f]
 
 
 def process_data(document_id):
@@ -205,14 +208,11 @@ def process_data(document_id):
         processed_records.append(result_dict)
 
     content_words = [
-        word for record in processed_records for word in record["content"].split()
+        word for record in processed_records for word in word_tokenize(record["content"].lower())
     ]
-    stop_words = set(stopwords())
-    filtered_words = [word for word in content_words if word.lower() not in stop_words]
+    filtered_words = [word for word in content_words if word not in stopword_list]
 
     word_counts = Counter(filtered_words)
-    
- 
     word_counts_30 = word_counts.most_common(30)
     word_cloud_data = [{"text": word, "value": count} for word, count in word_counts_30]
 
