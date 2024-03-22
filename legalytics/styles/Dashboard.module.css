@@ -1,0 +1,69 @@
+/* styles/Dashboard.module.css */
+
+.container {
+    max-width: 800px;
+    margin: 0 auto;
+    padding: 20px;
+  }
+  
+  .title {
+    font-size: 2rem;
+    margin-bottom: 20px;
+    text-align: center;
+  }
+  
+  .wordCloudSection {
+    margin-bottom: 40px;
+  }
+  
+  .sectionTitle {
+    font-size: 1.5rem;
+    margin-bottom: 10px;
+  }
+  
+  .wordCloudContainer {
+    display: flex;
+    justify-content: center;
+  }
+  
+  .wordCloud {
+    width: 100%;
+    max-width: 800px;
+    height: auto;
+  }
+  
+  .tablesSection {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 20px;
+  }
+  
+  .tableContainer {
+    flex: 1 1 300px;
+    border: 1px solid #ddd;
+    border-radius: 8px;
+    overflow: hidden;
+  }
+  
+  .tableTitle {
+    font-size: 1.2rem;
+    padding: 10px;
+    background-color: #f0f0f0;
+  }
+  
+  .table {
+    width: 100%;
+    border-collapse: collapse;
+  }
+  
+  .table th,
+  .table td {
+    padding: 10px;
+    border-bottom: 1px solid #ddd;
+    text-align: left;
+  }
+  
+  .table th {
+    background-color: #f0f0f0;
+  }
+  
