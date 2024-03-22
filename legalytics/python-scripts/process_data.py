@@ -10,6 +10,8 @@ import torch
 from transformers import AutoTokenizer, AutoModelForTokenClassification, pipeline
 from opensearchpy import OpenSearch
 import sys
+from stopwords_id import stopwords
+
 
 # Load environment variables from .env file
 load_dotenv()
@@ -184,6 +186,7 @@ def process_record(record):
     return result_dict
 
 
+
 def process_data(document_id):
     """
     Process data for a given document ID.
@@ -204,10 +207,11 @@ def process_data(document_id):
     content_words = [
         word for record in processed_records for word in record["content"].split()
     ]
-    stop_words = set(stopwords.words('indonesian'))
+    stop_words = set(stopwords())
     filtered_words = [word for word in content_words if word.lower() not in stop_words]
 
     word_counts = Counter(filtered_words)
+    
  
     word_counts_30 = word_counts.most_common(30)
     word_cloud_data = [{"text": word, "value": count} for word, count in word_counts_30]
