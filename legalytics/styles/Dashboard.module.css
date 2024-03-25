@@ -1,89 +1,189 @@
 /* Dashboard.module.css */
 .container {
-  font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
-  color: #333;
-  padding: 20px;
+  font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Oxygen-Sans, Ubuntu, Cantarell, "Helvetica Neue", sans-serif;
+  color: #4A5568; /* Updated to a softer, modern gray */
+  padding: 32px; /* Increased padding */
   max-width: 1200px;
-  margin: auto;
-  background-color: #f0f2f5;
+  margin: 40px auto; /* More vertical space */
+  background-color: #FFFFFF; /* Pure white background for a cleaner look */
+  border-radius: 12px; /* Slightly larger radius for a softer edge */
+  box-shadow: 0 10px 15px -3px rgba(0, 0, 0, 0.1), 0 4px 6px -4px rgba(0, 0, 0, 0.1); /* Softer shadow */
 }
 
 .title {
-  color: #2c3e50;
+  color: #2D3748; /* Slightly darker for better contrast */
   text-align: center;
-  margin-bottom: 40px;
+  margin-bottom: 60px; /* More space */
+  font-size: 32px; /* Larger title */
+  font-weight: 700; /* Bold */
 }
 
 .wordCloudSection, .tablesSection {
-  margin-bottom: 30px;
+  margin-bottom: 48px; /* Increased space */
 }
 
-.wordCloudContainer {
-  background-color: #ffffff;
-  padding: 10px;
-  border-radius: 8px;
-  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+.wordCloudContainer, .tableContainer {
+  background-color: #FFFFFF;
+  padding: 24px;
+  border-radius: 12px; /* Consistent with .container */
+  box-shadow: 0 5px 10px rgba(0, 0, 0, 0.05);
+  transition: all 0.3s ease; /* Smoother transition for all properties */
 }
 
-/* Scoping SVG styles to the wordCloudContainer to ensure locality */
-.wordCloudContainer svg {
+.wordCloudContainer:hover, .tableContainer:hover {
+  transform: translateY(-3px); /* Subtle lift */
+  box-shadow: 0 10px 20px rgba(0, 0, 0, 0.1);
+}
+
+/* Universally applied to both containers to avoid repetition */
+.wordCloudContainer svg, .tableContainer table {
   display: block;
   margin: auto;
-}
-
-.tableContainer {
-  background-color: #ffffff;
-  padding: 20px;
-  margin-bottom: 20px;
-  border-radius: 8px;
-  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+  max-width: 100%;
 }
 
 .tableTitle {
-  color: #34495e;
-  margin-bottom: 15px;
-}
-
-/* Ensuring table styles are scoped and compliant with CSS Modules requirement */
-.tableContainer table {
-  width: 100%;
-  border-collapse: collapse;
+  color: #1A202C; /* Consistency with modern design */
+  margin-bottom: 32px; /* More space */
+  font-weight: 600; /* Semi-bold */
 }
 
 .tableContainer th, .tableContainer td {
-  text-align: left;
-  padding: 10px;
-  border-bottom: 1px solid #ccc;
+  padding: 16px; /* More spacious */
+  border-bottom: 2px solid #E2E8F0; /* Slightly thicker for emphasis */
 }
 
 .tableContainer th {
-  background-color: #ecf0f1;
+  background-color: #F7FAFC; /* Lighter for a fresher look */
+  color: #4A5568; /* Modern gray */
 }
 
 .tableContainer tr:hover {
-  background-color: #f5f5f5;
+  background-color: #F7FAFC; /* Cohesive with th */
 }
 
-/* Applying styling for even and odd rows within the scoped container */
-.tableContainer tr:nth-child(even) {background-color: #f2f2f2;}
-.tableContainer tr:nth-child(odd) {background-color: #ffffff;}
-
-/* Making the table headers point to sortable or interactive features */
-.tableContainer th {cursor:pointer;}
+/* Adjusted for cohesion and modernity */
+.tableContainer th:hover {
+  background-color: #E2E8F0; /* Softer on hover */
+}
 
 /* Responsive Design Tweaks */
 @media (max-width: 768px) {
   .container {
-    padding: 10px;
+    padding: 20px;
+  }
+
+  .title {
+    font-size: 28px; /* Slightly reduced for smaller screens */
+  }
+}
+
+/* Adjustments for a minimalist and modern table */
+.tableContainer {
+  background-color: #FFFFFF; /* Pure white to emphasize cleanliness */
+  padding: 24px;
+  margin-bottom: 30px;
+  border-radius: 8px; /* Soft but defined edges */
+  box-shadow: none; /* Removing shadow for a flatter, cleaner look */
+  transition: background-color 0.3s ease; /* Smooth transition for interactivity */
+}
+
+.tableContainer:hover {
+  background-color: #F7F7F7; /* Slight background color change on hover for a dynamic feel */
+}
+
+.tableTitle {
+  color: #333; /* Simple, strong color for the title */
+  margin-bottom: 20px;
+  font-size: 20px;
+  font-weight: 600; /* Defined but not overpowering */
+}
+
+.tableContainer table {
+  width: 100%;
+  border-collapse: collapse; /* Ensuring clean lines and spacing */
+  margin-bottom: 0; /* Removing unnecessary space */
+}
+
+.tableContainer th, .tableContainer td {
+  text-align: left;
+  padding: 16px 24px; /* Aligned padding for a symmetrical, clean look */
+  border-bottom: 1px solid #EAEAEA; /* Subtle border color for light delineation without heaviness */
+}
+
+.tableContainer th {
+  background-color: transparent; /* Removing any additional colors for a minimalist header */
+  color: #555; /* Slightly lighter than text color for distinction without distraction */
+  font-weight: 400; /* Normal weight to avoid heavy headers */
+}
+
+.tableContainer tr:hover {
+  background-color: #F7F7F7; /* A light-hover effect for the entire row to softly highlight selection */
+}
+
+.tableContainer tr:last-child td {
+  border-bottom: none; /* Removing the bottom border from the last row for cleaner edge lines */
+}
+
+.tableContainer th:last-child, .tableContainer td:last-child {
+  padding-right: 24px; /* Ensuring consistent padding on the right-most cell */
+}
+
+/* Enhancing the minimalist appearance on smaller devices */
+@media (max-width: 768px) {
+  .container, .tableContainer {
+    padding: 16px; /* Slightly reduced padding to accommodate smaller screens */
+  }
+
+  .title {
+    font-size: 24px; /* Adjusting title size for device appropriateness */
+  }
+
+  .tableContainer th, .tableContainer td {
+    padding: 12px 16px; /* Adjusting cell padding for a more compact layout */
+  }
+}
+
+
+/* Additions to Dashboard.module.css for grid layout */
+.tablesSection {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr); /* Create two columns */
+  grid-gap: 24px; /* Space between grid items */
+  margin-bottom: 48px; /* Increased space, can adjust as needed */
+}
+
+/* Responsiveness: Adjust grid for different screen sizes */
+@media (max-width: 1024px) {
+  .tablesSection {
+    grid-template-columns: 1fr; /* Stack tables in one column on smaller screens */
+  }
+}
+
+/* Existing styles from Dashboard.module.css */
+/* Paste all your existing CSS here and add the above modifications where appropriate */
+
+/* Ensures that the last table cell in each table has no bottom border for cleanliness */
+.tableContainer tr:last-child td {
+  border-bottom: none;
+}
+
+/* Ensures padding consistency in the last cells */
+.tableContainer th:last-child, .tableContainer td:last-child {
+  padding-right: 24px;
+}
+
+/* Adjusting padding for smaller screens for all items inside .container and .tableContainer */
+@media (max-width: 768px) {
+  .container, .tableContainer {
+    padding: 16px;
   }
 
   .title {
     font-size: 24px;
   }
 
-  /* Ensuring the word cloud fits nicely on smaller screens */
-  .wordCloudContainer svg {
-    width: 100% !important;
-    height: auto !important;
+  .tableContainer th, .tableContainer td {
+    padding: 12px 16px;
   }
 }
