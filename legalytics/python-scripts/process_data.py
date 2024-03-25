@@ -5,12 +5,17 @@ import sys
 from dotenv import load_dotenv
 from pandas import json_normalize
 from collections import Counter
-from nltk.corpus import stopwords
 import torch
 from transformers import AutoTokenizer, AutoModelForTokenClassification, pipeline
 from opensearchpy import OpenSearch
 import sys
 from nltk.tokenize import word_tokenize
+from Sastrawi.StopWordRemover.StopWordRemoverFactory import StopWordRemoverFactory
+
+# Membuat stopword remover menggunakan Sastrawi
+factory = StopWordRemoverFactory()
+stopword_remover = factory.create_stop_word_remover()
+
 
 # Load environment variables from .env file
 load_dotenv()
@@ -184,11 +189,6 @@ def process_record(record):
 
     return result_dict
 
-script_dir = os.path.dirname(os.path.abspath(__file__))
-file_path = os.path.join(script_dir, "tala-stopwords-indonesia.txt")
-with open(file_path, "r") as f:
-    stopword_list = [line.strip().split()[0] for line in f]
-
 
 def process_data(document_id):
     """
@@ -210,7 +210,9 @@ def process_data(document_id):
     content_words = [
         word for record in processed_records for word in word_tokenize(record["content"].lower())
     ]
-    filtered_words = [word for word in content_words if word not in stopword_list]
+    content_text = " ".join(content_words)
+    filtered_text = stopword_remover.remove(content_text)
+    filtered_words = word_tokenize(filtered_text)
 
     word_counts = Counter(filtered_words)
     word_counts_30 = word_counts.most_common(30)
