@@ -1,69 +1,89 @@
-/* styles/Dashboard.module.css */
-
+/* Dashboard.module.css */
 .container {
-    max-width: 800px;
-    margin: 0 auto;
-    padding: 20px;
+  font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+  color: #333;
+  padding: 20px;
+  max-width: 1200px;
+  margin: auto;
+  background-color: #f0f2f5;
+}
+
+.title {
+  color: #2c3e50;
+  text-align: center;
+  margin-bottom: 40px;
+}
+
+.wordCloudSection, .tablesSection {
+  margin-bottom: 30px;
+}
+
+.wordCloudContainer {
+  background-color: #ffffff;
+  padding: 10px;
+  border-radius: 8px;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+}
+
+/* Scoping SVG styles to the wordCloudContainer to ensure locality */
+.wordCloudContainer svg {
+  display: block;
+  margin: auto;
+}
+
+.tableContainer {
+  background-color: #ffffff;
+  padding: 20px;
+  margin-bottom: 20px;
+  border-radius: 8px;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+}
+
+.tableTitle {
+  color: #34495e;
+  margin-bottom: 15px;
+}
+
+/* Ensuring table styles are scoped and compliant with CSS Modules requirement */
+.tableContainer table {
+  width: 100%;
+  border-collapse: collapse;
+}
+
+.tableContainer th, .tableContainer td {
+  text-align: left;
+  padding: 10px;
+  border-bottom: 1px solid #ccc;
+}
+
+.tableContainer th {
+  background-color: #ecf0f1;
+}
+
+.tableContainer tr:hover {
+  background-color: #f5f5f5;
+}
+
+/* Applying styling for even and odd rows within the scoped container */
+.tableContainer tr:nth-child(even) {background-color: #f2f2f2;}
+.tableContainer tr:nth-child(odd) {background-color: #ffffff;}
+
+/* Making the table headers point to sortable or interactive features */
+.tableContainer th {cursor:pointer;}
+
+/* Responsive Design Tweaks */
+@media (max-width: 768px) {
+  .container {
+    padding: 10px;
   }
-  
+
   .title {
-    font-size: 2rem;
-    margin-bottom: 20px;
-    text-align: center;
+    font-size: 24px;
   }
-  
-  .wordCloudSection {
-    margin-bottom: 40px;
+
+  /* Ensuring the word cloud fits nicely on smaller screens */
+  .wordCloudContainer svg {
+    width: 100% !important;
+    height: auto !important;
   }
-  
-  .sectionTitle {
-    font-size: 1.5rem;
-    margin-bottom: 10px;
-  }
-  
-  .wordCloudContainer {
-    display: flex;
-    justify-content: center;
-  }
-  
-  .wordCloud {
-    width: 100%;
-    max-width: 800px;
-    height: auto;
-  }
-  
-  .tablesSection {
-    display: flex;
-    flex-wrap: wrap;
-    gap: 20px;
-  }
-  
-  .tableContainer {
-    flex: 1 1 300px;
-    border: 1px solid #ddd;
-    border-radius: 8px;
-    overflow: hidden;
-  }
-  
-  .tableTitle {
-    font-size: 1.2rem;
-    padding: 10px;
-    background-color: #f0f0f0;
-  }
-  
-  .table {
-    width: 100%;
-    border-collapse: collapse;
-  }
-  
-  .table th,
-  .table td {
-    padding: 10px;
-    border-bottom: 1px solid #ddd;
-    text-align: left;
-  }
-  
-  .table th {
-    background-color: #f0f0f0;
-  }
-  
+}
