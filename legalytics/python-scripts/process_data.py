@@ -184,9 +184,9 @@ def process_record(record):
 
     return result_dict
 
-# Load stopwords from file
-stopword_file = "tala-stopwords-indonesia.txt"
-with open(stopword_file, "r") as f:
+script_dir = os.path.dirname(os.path.abspath(__file__))
+file_path = os.path.join(script_dir, "tala-stopwords-indonesia.txt")
+with open(file_path, "r") as f:
     stopword_list = [line.strip().split()[0] for line in f]
 
 

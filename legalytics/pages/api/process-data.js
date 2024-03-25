@@ -22,7 +22,7 @@ export default function handler(req, res) {
   const pythonScriptPath = path.join(process.cwd(), 'python-scripts', 'process_data.py');
   console.log('Python script path:', pythonScriptPath); // Log Python script path
 
-  const pythonProcess = spawn('python', [pythonScriptPath, document_id]);
+  const pythonProcess = spawn('python3', [pythonScriptPath, document_id]);
   console.log('Python process spawned'); // Log when Python process is spawned
 
   let scriptOutput = '';

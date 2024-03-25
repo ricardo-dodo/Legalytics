@@ -7,7 +7,7 @@ import styles from '../styles/Dashboard.module.css'; // Update import for modern
 
 const Dashboard = ({ processedData }) => {
   useEffect(() => {
-    if (processedData.wordCloud.length > 0) {
+    if (processedData.wordCloud && processedData.wordCloud.length > 0) {
       renderWordCloud(processedData.wordCloud);
     }
   }, [processedData.wordCloud]);
@@ -76,7 +76,7 @@ const Dashboard = ({ processedData }) => {
                   <th>Details</th>
                 </tr>
               </thead>
-              <tbody>{renderTableRows(processedData.tables[key] || [])}</tbody>
+              <tbody>{renderTableRows(processedData.tables && processedData.tables[key] ? processedData.tables[key] : [])}</tbody>
             </table>
           </div>
         ))}
@@ -86,3 +86,6 @@ const Dashboard = ({ processedData }) => {
 };
 
 export default Dashboard;
+
+
+
