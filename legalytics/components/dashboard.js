@@ -70,7 +70,7 @@ const Dashboard = ({ processedData }) => {
             <div className={styles.tablesSection}>
                 {['money', 'prohibitions', 'dates'].map((key) => (
                 <div key={key} className={styles.tableContainer}>
-                    <h2 className={styles.tableTitle}>{key.charAt(0).toUpperCase() + key.slice(1)} Table</h2>
+                    <h2 className={styles.tableTitle}>{key.charAt(0).toUpperCase() + key.slice(1)} </h2>
                     <table className={styles.table}>
                     <thead>
                         <tr>
