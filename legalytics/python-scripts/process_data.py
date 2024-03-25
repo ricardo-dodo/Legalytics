@@ -11,6 +11,7 @@ from opensearchpy import OpenSearch
 import sys
 from nltk.tokenize import word_tokenize
 from Sastrawi.StopWordRemover.StopWordRemoverFactory import StopWordRemoverFactory
+import string
 
 # Membuat stopword remover menggunakan Sastrawi
 factory = StopWordRemoverFactory()
@@ -207,16 +208,24 @@ def process_data(document_id):
         result_dict = process_record(row)
         processed_records.append(result_dict)
 
-    content_words = [
-        word for record in processed_records for word in word_tokenize(record["content"].lower())
-    ]
+    # Menggabungkan semua konten yang di-tokenize
+    content_words = [word for record in processed_records for word in word_tokenize(record["content"].lower())]
+
+    # Menghapus angka dan tanda baca
     content_text = " ".join(content_words)
+    content_text = re.sub(r'\d+', '', content_text)  # Menghapus angka
+    content_text = content_text.translate(str.maketrans("", "", string.punctuation))  # Menghapus tanda baca
+
+    # Menghapus stopwords dengan Sastrawi
     filtered_text = stopword_remover.remove(content_text)
+
+    # Tokenize lagi setelah membersihkan teks
     filtered_words = word_tokenize(filtered_text)
 
     word_counts = Counter(filtered_words)
     word_counts_30 = word_counts.most_common(30)
     word_cloud_data = [{"text": word, "value": count} for word, count in word_counts_30]
+
 
     money_data = [
         {"value": money} for record in processed_records for money in record["money"]
@@ -248,3 +257,8 @@ if __name__ == "__main__":
     document_id = sys.argv[1]  # Get document ID from command line argument
     result = process_data(document_id)
     print(result)
+
+
+
+
+
