@@ -6,4 +6,6 @@ opensearch-py==2.4.2
 python-dotenv==1.0.1
 transformers==4.38.2
 torch==2.2.1
-stopwords-id
+nltk
+openai
+Sastrawi

@@ -1,3 +1,4 @@
+
 import re
 import json
 import os
@@ -12,16 +13,18 @@ import sys
 from nltk.tokenize import word_tokenize
 from Sastrawi.StopWordRemover.StopWordRemoverFactory import StopWordRemoverFactory
 import string
+import openai 
+
 
 # Membuat stopword remover menggunakan Sastrawi
 factory = StopWordRemoverFactory()
 stopword_remover = factory.create_stop_word_remover()
 
-
 # Load environment variables from .env file
 load_dotenv()
 
 # OpenSearch configuration
+OPENAI_API_KEY = os.getenv("OPENAI_API_KEY")
 OPENSEARCH_HOST = os.getenv("OPENSEARCH_HOST")
 OPENSEARCH_PORT = int(os.getenv("OPENSEARCH_PORT"))
 OPENSEARCH_USERNAME = os.getenv("OPENSEARCH_USERNAME")
@@ -33,6 +36,36 @@ tokenizer = AutoTokenizer.from_pretrained(MODEL_NAME)
 model = AutoModelForTokenClassification.from_pretrained(MODEL_NAME)
 ner_pipeline = pipeline("ner", model=model, tokenizer=tokenizer)
 
+def generate_gpt3_insight(text, record):
+    """
+    Menghasilkan insight untuk teks yang diberikan dengan menggunakan konteks dari record flat_data.
+
+    Args:
+        text (str): Teks untuk menghasilkan insight (nilai uang, tanggal, atau pernyataan larangan).
+        record (dict): Record flat_data yang memberikan konteks yang lebih luas.
+
+    Returns:
+        str: Insight yang dihasilkan oleh GPT-3.
+    """
+    openai.api_key = OPENAI_API_KEY  # Dimuat dari variabel lingkungan Anda
+
+    # Membuat prompt yang komprehensif dengan menyertakan teks spesifik dan konteks yang lebih luas
+    prompt = f"Berdasarkan konteks berikut: '{record}', insight apa yang dapat ditarik dari detail spesifik ini: '{text}'?"
+
+    try:
+        response = openai.Completion.create(
+          engine="text-davinci-003",
+          prompt=prompt,
+          temperature=0.7,
+          max_tokens=150,  # Sesuaikan berdasarkan panjang insight yang diharapkan
+          top_p=1.0,
+          frequency_penalty=0,
+          presence_penalty=0
+        )
+        return response.choices[0].text.strip()
+    except Exception as e:
+        print(f"Error generating insight: {e}")
+        return "Error in generating insight."
 
 def retrieve_document(document_id):
     """
@@ -167,41 +200,42 @@ def apply_ner(text):
 
 def process_record(record):
     """
-    Process individual record.
+    Memproses setiap record untuk mengekstrak nilai uang, tanggal, dan larangan,
+    serta menghasilkan insight untuk masing-masing berdasarkan konteks dari flat_data.
+
+    Args:
+        record (dict): Satu record dokumen dari flat_data.
+
+    Returns:
+        dict: Record yang telah diproses beserta insight-nya.
     """
     content = record["content"]
 
-    if not content:
-        return {
-            "content": content,
-            "money": [],
-            "dates": [],
-            "prohibitions": [],
-            "named_entities": [],
-        }
+    money = extract_money(content)
+    dates = extract_dates(content)
+    prohibitions = extract_prohibitions(content)
 
-    result_dict = {
+    # Menghasilkan insight GPT-3 dengan menggunakan keseluruhan record sebagai konteks
+    money_insights = [{"value": m, "insight": generate_gpt3_insight(m, record)} for m in money]
+    date_insights = [{"date": d, "insight": generate_gpt3_insight(d, record)} for d in dates]
+    prohibition_insights = [{"text": p, "insight": generate_gpt3_insight(p, record)} for p in prohibitions]
+
+    return {
         "content": content,
-        "money": extract_money(content),
-        "dates": extract_dates(content),
-        "prohibitions": extract_prohibitions(content),
+        "money_insights": money_insights,
+        "date_insights": date_insights,
+        "prohibition_insights": prohibition_insights
     }
-    ner_results = apply_ner(content)
-
-    return result_dict
-
 
 def process_data(document_id):
     """
-    Process data for a given document ID.
+    Memproses data untuk document ID yang diberikan.
     """
     flat_data = retrieve_document(document_id)
 
     if flat_data is None or flat_data.empty:
         print("No data retrieved or data is empty.", file=sys.stderr)
         return {}
-
-    flat_data = flat_data.dropna(subset=["content"])
 
     processed_records = []
     for _, row in flat_data.iterrows():
@@ -226,17 +260,20 @@ def process_data(document_id):
     word_counts_30 = word_counts.most_common(30)
     word_cloud_data = [{"text": word, "value": count} for word, count in word_counts_30]
 
-
     money_data = [
-        {"value": money} for record in processed_records for money in record["money"]
+        {"value": money["value"], "insight": money["insight"]} 
+        for record in processed_records 
+        for money in record["money_insights"]
     ]
     prohibition_data = [
-        {"text": prohibition}
+        {"text": prohibition["text"], "insight": prohibition["insight"]}
         for record in processed_records
-        for prohibition in record["prohibitions"]
+        for prohibition in record["prohibition_insights"]
     ]
     date_data = [
-        {"date": date} for record in processed_records for date in record["dates"]
+        {"date": date["date"], "insight": date["insight"]}
+        for record in processed_records
+        for date in record["date_insights"]
     ]
 
     result = {
