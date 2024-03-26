@@ -326,7 +326,7 @@ def process_data(document_id):
 if __name__ == "__main__":
     document_id = sys.argv[1]  # Get document ID from command line argument
     result = process_data(document_id)
-    print(result)
+    print(result, end='')
 
 
 
