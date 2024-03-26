@@ -1,4 +1,3 @@
-
 import re
 import json
 import os
@@ -35,22 +34,21 @@ MODEL_NAME = "indobenchmark/indobert-base-p1"
 tokenizer = AutoTokenizer.from_pretrained(MODEL_NAME)
 model = AutoModelForTokenClassification.from_pretrained(MODEL_NAME)
 ner_pipeline = pipeline("ner", model=model, tokenizer=tokenizer)
-
+client = OpenAI()
 
 def generate_gpt3_insight(text, record):
-    client = OpenAI()
 
-    prompt = f"Berdasarkan konteks berikut: '{text}', insight apa yang dapat ditarik dari detail spesifik ini: '{record}'?"
+    prompt = f"Berdasarkan konteks '{text}' dan detail spesifik '{record}', berikan insight yang singkat, padat, dan bermakna."
 
     try:
         response = client.chat.completions.create(
             model="gpt-3.5-turbo",
             messages=[
-                {"role": "system", "content": "You are an insightful assistant that draws meaningful conclusions from given context and details."},
+                {"role": "system", "content": "Anda adalah asisten yang ahli dalam menghasilkan insight yang bermakna dari konteks dan detail yang diberikan. Berikan insight dalam satu atau dua kalimat saja."},
                 {"role": "user", "content": prompt}
             ],
             temperature=0.7,
-            max_tokens=150,
+            max_tokens=50,
             top_p=1.0,
             frequency_penalty=0,
             presence_penalty=0
@@ -58,7 +56,8 @@ def generate_gpt3_insight(text, record):
         return response.choices[0].message.content.strip()
     except Exception as e:
         print(f"Error generating insight: {e}")
-        return "Error in generating insight."
+        return "Terjadi kesalahan dalam menghasilkan insight."
+
 
 def retrieve_document(document_id):
     """
@@ -101,20 +100,62 @@ def retrieve_document(document_id):
         print(f"Error retrieving document: {str(e)}", file=sys.stderr)
         return None
 
+def extract_prohibitions(text, record):
+    prompt = f"""
+Berdasarkan konteks berikut:
+'{text}'
 
-def extract_prohibitions(text):
-    """
-    Extract prohibition statements from text.
-    """
-    prohibition_pattern = re.compile(
-        r"(?:dilarang|Dilarang):\s*([a-z](?:(?!(?:dilarang|Dilarang):).)*)\.",
-        re.IGNORECASE | re.DOTALL,
-    )
-    prohibitions = prohibition_pattern.findall(text)
-    cleaned_prohibitions = [
-        re.sub(r"\n", " ", prohibition).strip() for prohibition in prohibitions
-    ]
-    return cleaned_prohibitions
+Temukan semua perintah atau larangan yang terdapat dalam teks di atas. Kembalikan hasilnya dalam format JSON array of objects, di mana setiap object memiliki satu key yaitu 'text' yang berisi satu perintah atau larangan yang ditemukan.
+
+Contoh format respons yang diharapkan:
+[
+    {{
+        "text": "Perintah atau larangan 1"
+    }},
+    {{
+        "text": "Perintah atau larangan 2"
+    }}
+]
+
+Pastikan respons Anda memenuhi kriteria berikut:
+1. Respons harus berupa JSON array yang valid, tanpa teks tambahan, penanda blok kode, atau pemformatan lainnya.
+2. Setiap perintah atau larangan harus diwakili oleh satu object dalam array.
+3. Setiap object harus memiliki tepat satu key yaitu 'text'.
+4. Nilai dari key 'text' harus berisi perintah atau larangan yang diekstrak dari teks, tanpa tambahan informasi lainnya.
+5. Jika tidak ditemukan perintah atau larangan, kembalikan array kosong [].
+
+Respons Anda harus berupa JSON array saja, tanpa teks tambahan sebelum atau sesudah JSON.
+"""
+
+    try:
+        response = client.chat.completions.create(
+            model="gpt-3.5-turbo",
+            messages=[
+                {"role": "system", "content": "Anda adalah asisten yang ahli dalam mengekstrak perintah atau larangan dari teks hukum."},
+                {"role": "user", "content": prompt}
+            ],
+            temperature=0.7,
+            max_tokens=150,
+            top_p=1.0,
+            frequency_penalty=0,
+            presence_penalty=0
+        )
+        prohibitions_json = response.choices[0].message.content.strip()
+
+        # Membersihkan respons dari penanda blok kode dan pemformatan lainnya
+        prohibitions_json = prohibitions_json.replace("```json", "").replace("```", "").strip()
+        prohibitions_json = re.sub(r"\s+", " ", prohibitions_json)
+
+        try:
+            prohibitions = json.loads(prohibitions_json)
+            return prohibitions
+        except json.JSONDecodeError as e:
+            print(f"Error parsing JSON: {e}")
+            print(f"Response from ChatGPT: {prohibitions_json}")
+            return []
+    except Exception as e:
+        print(f"Error extracting prohibitions: {e}")
+        return []
 
 
 def extract_dates(text):
@@ -206,12 +247,11 @@ def process_record(record):
 
     money = extract_money(content)
     dates = extract_dates(content)
-    prohibitions = extract_prohibitions(content)
+    prohibitions = extract_prohibitions(content, record)
 
-    # Menghasilkan insight GPT-3 dengan menggunakan keseluruhan record sebagai konteks
     money_insights = [{"value": m, "insight": generate_gpt3_insight(m, record)} for m in money]
     date_insights = [{"date": d, "insight": generate_gpt3_insight(d, record)} for d in dates]
-    prohibition_insights = [{"text": p, "insight": generate_gpt3_insight(p, record)} for p in prohibitions]
+    prohibition_insights = [{"text": p["text"], "insight": generate_gpt3_insight(p["text"], record)} for p in prohibitions]
 
     return {
         "content": content,
