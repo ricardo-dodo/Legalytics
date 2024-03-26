@@ -13,7 +13,7 @@ import sys
 from nltk.tokenize import word_tokenize
 from Sastrawi.StopWordRemover.StopWordRemoverFactory import StopWordRemoverFactory
 import string
-import openai 
+from openai import OpenAI
 
 
 # Membuat stopword remover menggunakan Sastrawi
@@ -36,33 +36,26 @@ tokenizer = AutoTokenizer.from_pretrained(MODEL_NAME)
 model = AutoModelForTokenClassification.from_pretrained(MODEL_NAME)
 ner_pipeline = pipeline("ner", model=model, tokenizer=tokenizer)
 
+
 def generate_gpt3_insight(text, record):
-    """
-    Menghasilkan insight untuk teks yang diberikan dengan menggunakan konteks dari record flat_data.
+    client = OpenAI()
 
-    Args:
-        text (str): Teks untuk menghasilkan insight (nilai uang, tanggal, atau pernyataan larangan).
-        record (dict): Record flat_data yang memberikan konteks yang lebih luas.
-
-    Returns:
-        str: Insight yang dihasilkan oleh GPT-3.
-    """
-    openai.api_key = OPENAI_API_KEY  # Dimuat dari variabel lingkungan Anda
-
-    # Membuat prompt yang komprehensif dengan menyertakan teks spesifik dan konteks yang lebih luas
-    prompt = f"Berdasarkan konteks berikut: '{record}', insight apa yang dapat ditarik dari detail spesifik ini: '{text}'?"
+    prompt = f"Berdasarkan konteks berikut: '{text}', insight apa yang dapat ditarik dari detail spesifik ini: '{record}'?"
 
     try:
-        response = openai.Completion.create(
-          engine="text-davinci-003",
-          prompt=prompt,
-          temperature=0.7,
-          max_tokens=150,  # Sesuaikan berdasarkan panjang insight yang diharapkan
-          top_p=1.0,
-          frequency_penalty=0,
-          presence_penalty=0
+        response = client.chat.completions.create(
+            model="gpt-3.5-turbo",
+            messages=[
+                {"role": "system", "content": "You are an insightful assistant that draws meaningful conclusions from given context and details."},
+                {"role": "user", "content": prompt}
+            ],
+            temperature=0.7,
+            max_tokens=150,
+            top_p=1.0,
+            frequency_penalty=0,
+            presence_penalty=0
         )
-        return response.choices[0].text.strip()
+        return response.choices[0].message.content.strip()
     except Exception as e:
         print(f"Error generating insight: {e}")
         return "Error in generating insight."

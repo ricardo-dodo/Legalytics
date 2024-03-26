@@ -1,3 +1,4 @@
+
 // components/dashboard.js
 import React, { useEffect } from 'react';
 import * as d3 from 'd3';
@@ -47,44 +48,48 @@ const Dashboard = ({ processedData }) => {
             .on('mouseout', function(_, i) { d3.select(this).style('fill', d3.schemeCategory10[i % 10]); });
     };
 
-    const renderTableRows = (data) => {
+    const renderTableRows = (data, type) => {
         return data.length === 0
-            ? <tr><td colSpan="2">No data available</td></tr>
-            : data.map((item, index) => (
-                <tr key={index}>
-                    <td>{item.text || item.date || item.value || 'N/A'}</td>
-                    <td>{item.value || 'Details (N/A)'}</td>
-                </tr>
+          ? <tr><td colSpan="2">No data available</td></tr>
+          : data.map((item, index) => (
+              <tr key={index}>
+                {/* Use the 'type' parameter to conditionally render data */}
+                <td>{type === 'dates' ? item.date : (type === 'money' ? item.value : item.text)}</td>
+                <td>{item.insight || 'No insight available'}</td>
+              </tr>
             ));
-    };
-
+      };
+      
     return (
         <div className={styles.container}>
-            <h1 className={styles.title}>Dashboard</h1>
-            <div className={styles.wordCloudSection}>
-                <div className={styles.wordCloudContainer}>
-                    <svg id="word-cloud" className={styles.wordCloud}></svg>
-                </div>
-            </div>
-
-            <div className={styles.tablesSection}>
-                {['money', 'prohibitions', 'dates'].map((key) => (
-                <div key={key} className={styles.tableContainer}>
-                    <h2 className={styles.tableTitle}>{key.charAt(0).toUpperCase() + key.slice(1)} </h2>
-                    <table className={styles.table}>
-                    <thead>
-                        <tr>
-                        <th>Text/Value</th>
-                        <th>Details</th>
-                        </tr>
-                    </thead>
-                    <tbody>{renderTableRows(processedData.tables && processedData.tables[key] ? processedData.tables[key] : [])}</tbody>
-                    </table>
-                </div>
-                ))}
+        <h1 className={styles.title}>Dashboard</h1>
+        <div className={styles.wordCloudSection}>
+            <div className={styles.wordCloudContainer}>
+                <svg id="word-cloud" className={styles.wordCloud}></svg>
             </div>
         </div>
-    );
+        <div className={styles.tablesSection}>
+            {/* Iterating over 'money', 'prohibitions', 'dates' to render tables */}
+            {['money', 'prohibitions', 'dates'].map((key) => (
+            <div key={key} className={styles.tableContainer}>
+                <h2 className={styles.tableTitle}>{key.charAt(0).toUpperCase() + key.slice(1)}</h2>
+                <table className={styles.table}>
+                <thead>
+                    <tr>
+                    <th>{key.charAt(0).toUpperCase() + key.slice(1)}</th>
+                    <th>Insight</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    {/* Ensure 'key' is passed as 'type' to 'renderTableRows' */}
+                    {renderTableRows(processedData.tables[key], key)}
+                </tbody>
+                </table>
+            </div>
+            ))}
+        </div>
+    </div>
+);
 };
 
 export default Dashboard;
