@@ -290,7 +290,7 @@ def process_data(document_id):
     filtered_words = word_tokenize(filtered_text)
 
     word_counts = Counter(filtered_words)
-    word_counts_30 = word_counts.most_common(30)
+    word_counts_30 = word_counts.most_common(50)
     word_cloud_data = [{"text": word, "value": count} for word, count in word_counts_30]
 
     money_data = [

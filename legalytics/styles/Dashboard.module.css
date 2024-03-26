@@ -28,6 +28,16 @@
   margin-bottom: 48px;
 }
 
+.wordCloudContainer {
+  width: 800px; /* Fixed width */
+  height: 400px; /* Fixed height */
+  /* Additional styles to ensure layout stability */
+  overflow: hidden; /* Optionally hide overflow */
+  /*make it center*/
+  margin: auto;
+}
+
+
 .wordCloudContainer, .tableContainer {
   background-color: #FFFFFF;
   padding: 24px;
