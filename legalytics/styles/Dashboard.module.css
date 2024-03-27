@@ -125,3 +125,31 @@
     padding: 12px 16px;
   }
 }
+
+.paginationButton {
+  background-color: #4A90E2; /* Modern blue */
+  color: #FFFFFF;
+  border: 2px solid #4A90E2; /* Add border for a cleaner look */
+  border-radius: 6px;
+  padding: 7px 20px;
+  cursor: pointer;
+  margin: 0 5px;
+  transition: all 0.3s ease; /* Smooth transition for all properties */
+  font-weight: bold; /* Make text bold for emphasis */
+}
+
+.paginationButton:hover {
+  background-color: #357EC7; /* Darker shade on hover */
+  border-color: #357EC7; /* Adjust border color on hover */
+}
+
+.disabledButton {
+  background-color: #E4E4E4; /* Light gray */
+  color: #9B9B9B; /* Dimmed text color */
+  cursor: not-allowed;
+  border: 2px solid #E4E4E4; /* Add border for consistency */
+}
+
+.pageCount {
+  margin: 0 10px;
+}

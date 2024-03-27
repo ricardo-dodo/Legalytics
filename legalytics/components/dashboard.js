@@ -2,6 +2,7 @@
 import React, { useEffect, useState } from 'react';
 import * as d3 from 'd3';
 import cloud from 'd3-cloud';
+import PropTypes from 'prop-types';
 import styles from '../styles/Dashboard.module.css';
 
 const Dashboard = ({ processedData }) => {
@@ -46,8 +47,8 @@ const Dashboard = ({ processedData }) => {
             .attr('transform', d => `translate(${d.x},${d.y}) rotate(${d.rotate})`)
             .text(d => d.text)
             // Adding simple interaction
-            .on('mouseover', function() { d3.select(this).style('fill', 'orange'); })
-            .on('mouseout', function(_, i) { d3.select(this).style('fill', d3.schemeCategory10[i % 10]); });
+            .on('mouseover', function () { d3.select(this).style('fill', 'orange'); })
+            .on('mouseout', function (_, i) { d3.select(this).style('fill', d3.schemeCategory10[i % 10]); });
     };
 
     const renderTableRows = (data, type) => {
@@ -58,29 +59,52 @@ const Dashboard = ({ processedData }) => {
 
         return currentItems.length === 0
             ? <tr><td colSpan="2">No data available</td></tr>
-            : currentItems.map((item, index) => (
-                <tr key={index}>
-                    <td>{type === 'dates' ? item.date : (type === 'money' ? item.value : item.text)}</td>
-                    <td>{item.insight || 'No insight available'}</td>
-                </tr>
-            ));
+            : currentItems.map((item) => {
+                let content;
+                if (type === 'dates') {
+                    content = item.date;
+                } else if (type === 'money') {
+                    content = item.value;
+                } else {
+                    content = item.text;
+                }
+                return (
+                    <tr key={item.id}>
+                        <td>{content}</td>
+                        <td>{item.insight || 'No insight available'}</td>
+                    </tr>
+                );
+            });
     };
 
     const renderPaginationControls = (type) => {
         const totalItems = processedData.tables[type].length;
-        const pageCount = Math.ceil(totalItems / itemsPerPage);
+        const pageCount = totalItems > 0 ? Math.ceil(totalItems / itemsPerPage) : 1;
+
+        const isPrevDisabled = currentPage[type] === 1;
+        const isNextDisabled = currentPage[type] === pageCount || totalItems === 0;
 
         return (
             <div>
-                <button onClick={() => setCurrentPage({ ...currentPage, [type]: currentPage[type] - 1 })} disabled={currentPage[type] === 1}>
+                <button
+                    className={`${styles.paginationButton} ${isPrevDisabled ? styles.disabledButton : ''}`}
+                    onClick={() => setCurrentPage({ ...currentPage, [type]: currentPage[type] - 1 })}
+                    disabled={isPrevDisabled}
+                >
                     Previous
                 </button>
-                <button onClick={() => setCurrentPage({ ...currentPage, [type]: currentPage[type] + 1 })} disabled={currentPage[type] === pageCount}>
+                <span className={styles.pageCount}>{totalItems > 0 ? `${currentPage[type]} / ${pageCount}` : '1 / 1'}</span>
+                <button
+                    className={`${styles.paginationButton} ${isNextDisabled ? styles.disabledButton : ''}`}
+                    onClick={() => setCurrentPage({ ...currentPage, [type]: currentPage[type] + 1 })}
+                    disabled={isNextDisabled}
+                >
                     Next
                 </button>
             </div>
         );
     };
+
 
     return (
         <div className={styles.container}>
@@ -92,25 +116,36 @@ const Dashboard = ({ processedData }) => {
             </div>
             <div className={styles.tablesSection}>
                 {['money', 'prohibitions', 'dates'].map((key) => (
-                <div key={key} className={styles.tableContainer}>
-                    <h2 className={styles.tableTitle}>{key.charAt(0).toUpperCase() + key.slice(1)}</h2>
-                    <table className={styles.table}>
-                    <thead>
-                        <tr>
-                        <th>{key.charAt(0).toUpperCase() + key.slice(1)}</th>
-                        <th>Insight</th>
-                        </tr>
-                    </thead>
-                    <tbody>
-                        {renderTableRows(processedData.tables[key], key)}
-                    </tbody>
-                    </table>
-                    {renderPaginationControls(key)}
-                </div>
+                    <div key={key} className={styles.tableContainer}>
+                        <h2 className={styles.tableTitle}>{key.charAt(0).toUpperCase() + key.slice(1)}</h2>
+                        <table className={styles.table}>
+                            <thead>
+                                <tr>
+                                    <th>{key.charAt(0).toUpperCase() + key.slice(1)}</th>
+                                    <th>Insight</th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                {renderTableRows(processedData.tables[key], key)}
+                            </tbody>
+                        </table>
+                        {renderPaginationControls(key)}
+                    </div>
                 ))}
             </div>
         </div>
     );
+};
+
+Dashboard.propTypes = {
+    processedData: PropTypes.shape({
+        wordCloud: PropTypes.array,
+        tables: PropTypes.shape({
+            money: PropTypes.array,
+            prohibitions: PropTypes.array,
+            dates: PropTypes.array,
+        }),
+    }),
 };
 
 export default Dashboard;
