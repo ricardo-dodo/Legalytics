@@ -1,0 +1,263 @@
+{
+    "wordCloud": [
+        {
+            "text": "masuk",
+            "value": 8
+        },
+        {
+            "text": "bea",
+            "value": 7
+        },
+        {
+            "text": "limited",
+            "value": 7
+        },
+        {
+            "text": "anti",
+            "value": 6
+        },
+        {
+            "text": "dumping",
+            "value": 6
+        },
+        {
+            "text": "peraturan",
+            "value": 6
+        },
+        {
+            "text": "menteri",
+            "value": 6
+        },
+        {
+            "text": "republik",
+            "value": 5
+        },
+        {
+            "text": "dimaksud",
+            "value": 5
+        },
+        {
+            "text": "negara",
+            "value": 4
+        },
+        {
+            "text": "india",
+            "value": 4
+        },
+        {
+            "text": "thailand",
+            "value": 4
+        },
+        {
+            "text": "barang",
+            "value": 4
+        },
+        {
+            "text": "lainnya",
+            "value": 4
+        },
+        {
+            "text": "eksportir",
+            "value": 4
+        },
+        {
+            "text": "sejak",
+            "value": 4
+        },
+        {
+            "text": "tanggal",
+            "value": 4
+        },
+        {
+            "text": "oriented",
+            "value": 3
+        },
+        {
+            "text": "polyethylene",
+            "value": 3
+        },
+        {
+            "text": "terephthalate",
+            "value": 3
+        },
+        {
+            "text": "bopet",
+            "value": 3
+        },
+        {
+            "text": "rrt",
+            "value": 3
+        },
+        {
+            "text": "perusahaan",
+            "value": 3
+        },
+        {
+            "text": "internasional",
+            "value": 3
+        },
+        {
+            "text": "sebagaimana",
+            "value": 3
+        },
+        {
+            "text": "berlaku",
+            "value": 3
+        },
+        {
+            "text": "indonesia",
+            "value": 3
+        },
+        {
+            "text": "biaxially",
+            "value": 2
+        },
+        {
+            "text": "tidak",
+            "value": 2
+        },
+        {
+            "text": "asal",
+            "value": 2
+        },
+        {
+            "text": "danatau",
+            "value": 2
+        },
+        {
+            "text": "produsen",
+            "value": 2
+        },
+        {
+            "text": "pasal",
+            "value": 2
+        },
+        {
+            "text": "merupakan",
+            "value": 2
+        },
+        {
+            "text": "umum",
+            "value": 2
+        },
+        {
+            "text": "most",
+            "value": 2
+        },
+        {
+            "text": "favoured",
+            "value": 2
+        },
+        {
+            "text": "nation",
+            "value": 2
+        },
+        {
+            "text": "skemaskemaperjanjianperdaganganbarang",
+            "value": 2
+        },
+        {
+            "text": "dilakukan",
+            "value": 2
+        },
+        {
+            "text": "perjanjian",
+            "value": 2
+        },
+        {
+            "text": "perdagangan",
+            "value": 2
+        },
+        {
+            "text": "pengenaan",
+            "value": 2
+        },
+        {
+            "text": "atas",
+            "value": 2
+        },
+        {
+            "text": "berlakunya",
+            "value": 2
+        },
+        {
+            "text": "tahun",
+            "value": 2
+        },
+        {
+            "text": "diundangkan",
+            "value": 2
+        },
+        {
+            "text": "jakarta",
+            "value": 2
+        },
+        {
+            "text": "desember",
+            "value": 2
+        },
+        {
+            "text": "ttd",
+            "value": 2
+        }
+    ],
+    "tables": {
+        "money": [],
+        "prohibitions": [
+            {
+                "text": "dikenakan Bea Masuk Anti Dumping",
+                "insight": "Pengenaan Bea Masuk Anti Dumping terhadap impor produk Biaxially Oriented Polypropylene (BOPP) bertujuan untuk melindungi industri dalam neger"
+            },
+            {
+                "text": "Negara asal dan nama eksportir dan/atau eksportir produsen produk yang dikenakan Bea Masuk Anti Dumping",
+                "insight": "Peraturan Bea Masuk Anti Dumping ini bertujuan untuk melindungi pasar domestik dari praktik dumping yang merugikan, dengan menetapkan bea masuk tambahan"
+            },
+            {
+                "text": "sebagaimana dimaksud dalam Pasal 1",
+                "insight": "Detail spesifik mengenai negara asal dan nama eksportir dalam Pasal 1 Peraturan tersebut menunjukkan pentingnya identifikasi sumber produk impor yang ter"
+            },
+            {
+                "text": "besaran Bea Masuk Anti Dumping",
+                "insight": "Pengenaan Bea Masuk Anti Dumping memungkinkan negara untuk melindungi pasar dalam negeri dari praktik dumping yang merugikan, dengan menetapkan tar"
+            },
+            {
+                "text": "Pengenaan Bea Masuk Anti Dumping sebagaimana dimaksud dalam Pasal 1 merupakan:",
+                "insight": "Pengenaan Bea Masuk Anti Dumping merupakan langkah yang diatur dalam Pasal 3 Peraturan Menteri Keuangan Nomor 221/PMK.010/"
+            },
+            {
+                "text": "Dalam hal ketentuan dalam skema-skema perjanjian perdagangan barang internasional tidak terpenuhi, pengenaan Bea Masuk Anti Dumping atas importasi dari negara-negara yang termasuk dalam skema-skema perjanjian perdagangan barang internasional sebagaimana dimaksud pada ayat (1) huruf b merupakan tambahan Bea Masuk Umum (Most Favoured Nation).",
+                "insight": "Pengenaan Bea Masuk Anti Dumping sebagai tambahan Bea Masuk Umum bagi importasi dari negara-negara dalam skema perjanjian perdagangan internasional men"
+            },
+            {
+                "text": "Tarif Bea Masuk Anti Dumping sebagaimana dimaksud dalam Pasal2berlakusepenuhnyaterhadapimporproduk sebagaimanadimaksuddalamPasal1yangdokumen pemberitahuanpabeanimpornyatelahmendapatnomor pendaftarandariKantorPabeantempatpelabuhan pemasukan sejak tanggal berlakunya Peraturan Menteri ini.",
+                "insight": "Tarif Bea Masuk Anti Dumping diberlakukan terhadap impor produk setelah mendapat nomor pendaftaran dari Kantor Pabean tempat pelabuhan p"
+            },
+            {
+                "text": "dilakukan evaluasi setelah 1 (satu) tahun sejak Peraturan Menteri ini berlaku",
+                "insight": "Evaluasi terhadap pengenaan Bea Masuk Anti Dumping setelah satu tahun berlaku penting untuk menilai efektivitas kebijakan tersebut dalam melindungi"
+            },
+            {
+                "text": "sesuai dengan ketentuan peraturan perundang-undangan",
+                "insight": "Peraturan tersebut mengatur pengenaan Bea Masuk Anti Dumping sesuai dengan ketentuan peraturan perundang-undangan, dengan fokus pada Pasal 5 yang"
+            },
+            {
+                "text": "Mulai berlaku setelah 3 (tiga) hari kerja terhitung sejak tanggal diundangkan dan berlaku selama 5 (lima) tahun sejak berlakunya Peraturan Menteri ini.",
+                "insight": "Peraturan Menteri ini akan berlaku setelah 3 hari kerja terhitung sejak tanggal diundangkan dan berlaku selama 5 tahun sejak berl"
+            },
+            {
+                "text": "Agar setiap orang mengetahuinya, memerintahkan pengundangan Peraturan Menteri ini dengan penempatannya dalam Berita Negara Republik Indonesia.",
+                "insight": "Peraturan Menteri ini akan berlaku setelah 3 hari sejak diundangkan dalam Berita Negara Republik Indonesia, menunjukkan pentingnya penyebar"
+            }
+        ],
+        "dates": [
+            {
+                "date": "7 Desember 2015",
+                "insight": "Peraturan Menteri Keuangan Nomor 221/PMK.010/2015 mulai berlaku setelah 3 hari sejak tanggal 7 Desember 201"
+            },
+            {
+                "date": "14 Desember 2015",
+                "insight": "Peraturan Menteri Keuangan Nomor 221/PMK.010/2015 mulai berlaku setelah 3 hari sejak tanggal 14 Desember 201"
+            }
+        ]
+    }
+}
