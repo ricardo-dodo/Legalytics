@@ -6,17 +6,36 @@ Legal Extraction API is a powerful tool designed to extract structured informati
 
 ### Installation
 
-1. Build the docker image
+1. Clone the repository
 
    ```
-   docker build -t legalytics .
+   git clone https://github.com/ricardo-dodo/Legalytics.git
+   ```
 
+2. Navigate to the project directory
 
    ```
-2. Run the docker container
+   cd Legalytics/legalytics
+   ```
+
+3. Install the next.js dependencies
 
    ```
-   docker run -p 3000:3000 legalytics
+   npm install
+
+   ```
+
+4. Install the python dependencies
+
+   ```
+   pip install -r requirements.txt
+
+   ```
+
+5. Run the next.js server
+
+   ```
+   npm run dev
 
    ```
 
